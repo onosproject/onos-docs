@@ -8,4 +8,4 @@ install:
 script:
 - git clean -f -d -x
 after_success:
-- chmod +x build/build_docs.sh && ./build/build_docs.sh
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then chmod +x build/build_docs.sh && ./build/build_docs.sh; fi' 
