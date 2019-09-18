@@ -4,7 +4,7 @@ install:
 - pip install pygments
 - pip install mkdocs
 - pip install mkdocs-material
-- pip install mkdocs-bootstrap4
+- pip install mkdocs-ivory
 script:
 - git clean -f -d -x
 after_success:
