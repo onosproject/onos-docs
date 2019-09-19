@@ -23,5 +23,8 @@ cd onos-control && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-test.git
 cd onos-test && rm -rf !(docs)
+cd ..
+git submodule add https://github.com/onosproject/onos-gui.git
+cd onos-gui && rm -rf !(docs)
 cd $CURRENT_PATH
 mkdocs gh-deploy -v --clean --remote-name gh-token;
