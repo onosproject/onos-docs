@@ -41,6 +41,5 @@ automatically.
 [Docker]: https://docs.docker.com/install/
 [Kind]: https://github.com/kubernetes-sigs/kind
 [Minikube]: https://kubernetes.io/docs/tasks/tools/install-minikube/
-
-[GoLand IDE]: /https://www.jetbrains.com/go/
-[Visual Studio Code]: /https://code.visualstudio.com
+[GoLand IDE]: https://www.jetbrains.com/go/
+[Visual Studio Code]: https://code.visualstudio.com

@@ -1,4 +1,5 @@
 # ONOS
+<div style="text-align: justify"> 
 
 As its predecessor, **µONOS** will be an open-source SDN control and configuration platform. The new architecture is:
 
@@ -18,3 +19,8 @@ The platform enables comprehensive set of network operations:
 - Validation of network topology and of forwarding plane behaviour
 - Efficient collection of fine-grained network performance metrics (INT)
 
+## µONOS Deployment Architecture
+
+![architecture](../images/uonos_architecture.png)
+
+</div>
