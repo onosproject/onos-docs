@@ -21,6 +21,6 @@ The platform enables comprehensive set of network operations:
 
 ## µONOS Deployment Architecture
 
-![architecture](../images/uonos_architecture.png)
+![architecture](images/uonos_architecture.png)
 
 </div>
