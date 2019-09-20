@@ -7,24 +7,24 @@ git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
 CURRENT_PATH=$PWD
 cd docs
 git submodule add https://github.com/onosproject/onos-config.git
-cd onos-config && rm -rf !(docs)
+mv onos-config Configuration-Subsystem && cd Configuration-Subsystem && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-topo.git
-cd onos-topo && rm -rf !(docs)
+mv onos-topo Topology-Subsystem && cd Topology-Subsystem && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-cli.git
-cd onos-cli && rm -rf !(docs)
+mv onos-cli CLI-Subsystem && cd CLI-Subsystem && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-ztp.git
-cd onos-ztp && rm -rf !(docs)
+mv onos-ztp ZTP-Subsystem && cd ZTP-Subsystem && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-control.git
-cd onos-control && rm -rf !(docs)
+mv onos-control Control-Subsystem && cd Control-Subsystem && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-test.git
-cd onos-test && rm -rf !(docs)
+mv onos-test Test-Tools && cd Test-Tools && rm -rf !(docs)
 cd ..
 git submodule add https://github.com/onosproject/onos-gui.git
-cd onos-gui && rm -rf !(docs)
+mv onos-gui GUI-Subsystem && cd GUI-Subsystem && rm -rf !(docs)
 cd $CURRENT_PATH
 mkdocs gh-deploy -v --clean --remote-name gh-token;
