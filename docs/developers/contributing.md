@@ -214,3 +214,9 @@ git push ${your_remote_name} myrevert
 
 This project follows [Google's Open Source Community
 Guidelines](https://opensource.google.com/conduct/).
+
+
+## Contributing to ONOS Docs
+
+See [documentation.md](documentation.md)
+for details on how to add to the documentation.

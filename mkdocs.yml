@@ -1,2 +1,42 @@
 site_name: onosproject
+site_url: https://www.onosproject.org
+site_description: Open Network Operating System (ONOS)
+site_author: Open Networking Foundation
 theme: 'material'
+
+# Repository
+repo_name: onosproject
+repo_url: https://github.com/onosproject
+
+# Page tree
+nav:
+   - ONOS: README.md
+   - Developers:
+      - Contacts and Calenders: developers/community-info.md
+      - Development Prerequisites: developers/prerequisites.md
+      - Developer Workflow: developers/dev_workflow.md
+      - Contribution Guidelines: developers/contributing.md
+   - Configuration Subsystem: 
+      - How To Build Configuration Subsystem?: onos-config/build.md 
+      - How To Run Configuration Subsystem?: onos-config/run.md
+      - How To Debug Configuration Subsystem?: onos-config/debugging.md
+      - Administrative And Diagnostic CLI: onos-config/cli.md
+      - Extending Configuration Subsystem With Model Plugins: onos-config/modelplugin.md
+      - Northbound gNMI Service: onos-config/gnmi.md
+      - gNMI Extensions: onos-config/gnmi_extensions.md
+   - Topology Subsystem:
+      - How To Use Topology Subsystem CLI?: onos-topo/cli.md
+   - Command Line Interface Subsystem (CLI):
+      - How To Install and Run CLI Subsystem?: onos-cli/setup.md
+   - Zero-Touch Provisioning (ZTP) Subsystem:
+      - How To Install And Run ZTP?: onos-ztp/setup.md 
+   - Test Tools:
+      - How To Install and Run ONIT?: onos-test/setup.md
+      - How To Use ONIT?: onos-test/run.md
+      - How To Write and Run Tests?: onos-test/testing.md
+   - Graphical User Interface (GUI):
+      - ONOS-GUI Subsystem: onos-gui/README.md
+      - Configuration GUI: onos-gui/config-gui.md
+      - GUI Architecture: onos-gui/architecture.md
+      - GUI Development Prerequisites: onos-gui/prerequisites.md
+      - How To Run ONOS GUI?: onos-gui/run.md
