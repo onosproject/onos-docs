@@ -17,26 +17,26 @@ nav:
       - Developer Workflow: developers/dev_workflow.md
       - Contribution Guidelines: developers/contributing.md
    - Configuration Subsystem: 
-      - How To Build Configuration Subsystem?: onos-config/build.md 
-      - How To Run Configuration Subsystem?: onos-config/run.md
-      - How To Debug Configuration Subsystem?: onos-config/debugging.md
-      - Administrative And Diagnostic CLI: onos-config/cli.md
-      - Extending Configuration Subsystem With Model Plugins: onos-config/modelplugin.md
-      - Northbound gNMI Service: onos-config/gnmi.md
-      - gNMI Extensions: onos-config/gnmi_extensions.md
+      - How To Build Configuration Subsystem?: onos-config/docs/build.md
+      - How To Run Configuration Subsystem?: onos-config/docs/run.md
+      - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
+      - Administrative And Diagnostic CLI: onos-config/docs/cli.md
+      - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
+      - Northbound gNMI Service: onos-config/docs/gnmi.md
+      - gNMI Extensions: onos-config/docs/gnmi_extensions.md
    - Topology Subsystem:
-      - How To Use Topology Subsystem CLI?: onos-topo/cli.md
+      - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
    - Command Line Interface Subsystem (CLI):
-      - How To Install and Run CLI Subsystem?: onos-cli/setup.md
+      - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
    - Zero-Touch Provisioning (ZTP) Subsystem:
-      - How To Install And Run ZTP?: onos-ztp/setup.md 
+      - How To Install And Run ZTP?: onos-ztp/docs/setup.md
    - Test Tools:
-      - How To Install and Run ONIT?: onos-test/setup.md
-      - How To Use ONIT?: onos-test/run.md
-      - How To Write and Run Tests?: onos-test/testing.md
+      - How To Install and Run ONIT?: onos-test/docs/setup.md
+      - How To Use ONIT?: onos-test/docs/run.md
+      - How To Write and Run Tests?: onos-test/docs/testing.md
    - Graphical User Interface (GUI):
-      - ONOS-GUI Subsystem: onos-gui/README.md
-      - Configuration GUI: onos-gui/config-gui.md
-      - GUI Architecture: onos-gui/architecture.md
-      - GUI Development Prerequisites: onos-gui/prerequisites.md
-      - How To Run ONOS GUI?: onos-gui/run.md
+      - ONOS-GUI Subsystem: onos-gui/docs/README.md
+      - Configuration GUI: onos-gui/docs/config-gui.md
+      - GUI Architecture: onos-gui/docs/architecture.md
+      - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
+      - How To Run ONOS GUI?: onos-gui/docs/run.md
