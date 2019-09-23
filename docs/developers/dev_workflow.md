@@ -16,7 +16,7 @@ a few steps to make sure the code will pass validation by the CI:
 * Run and pass `make build`
 * Run and pass `make test`
 
-You can find more information on the full build process in the [building onos-config](../../../onos-config/docs/build.md) document.
+You can find more information on the full build process in the [building onos-config](../../onos-config/docs/build.md) document.
 
 ## Submit a Pull Request
 If the build and the test passed, you can commit your code and open a new pull request 
