@@ -30,7 +30,7 @@ Note that when using [GoLand IDE] you should enable integration with Go modules 
 ## License
 The project requires that all Go source files are properly annotated using the Apache 2.0 License.
 Since this requirement is enforced by the CI process, it is strongly recommended that developers
-setup their IDE to include the [license text](../build/licensing/boilerplate.go.txt)
+setup their IDE to include the [license text](https://github.com/onosproject/onos-config/blob/master/build/licensing/boilerplate.go.txt)
 automatically.
 
 [GoLand IDE can be easily setup to do this](license_goland.md) and other IDEs will have a similar mechanism.
