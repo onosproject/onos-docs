@@ -41,3 +41,15 @@ nav:
       - GUI Architecture: onos-gui/docs/architecture.md
       - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
       - How To Run ONOS GUI?: onos-gui/docs/run.md
+
+markdown_extensions:
+  - codehilite
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/onosproject'
+    - type: 'slack'
+      link: 'https://onosproject.slack.com/'
+    - type: 'youtube'
+      link: 'https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw'
