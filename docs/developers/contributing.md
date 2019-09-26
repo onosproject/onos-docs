@@ -12,10 +12,9 @@ required to establish such a Fork and to create a Pull Request.
 
 ![Git workflow](../images/contributing_workflow.png)
 
-<aside class="notice">
+[!NOTE]
 In the following subsections, we explain the contribution workflow for one of the repositories, namely `onos-config`. The same workflow can be used for all the other repos under [onosproject](https://github.com/onosproject).
 In the following examples just substitute any `onos-config` reference with the name of the repo you are working on, such as `onos-topo` or `simulators`. Any step that do not have `onos-config` in them can be used as is. 
-</aside>
   
 ### 1. Fork on GitHub
 
