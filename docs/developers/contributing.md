@@ -12,9 +12,10 @@ required to establish such a Fork and to create a Pull Request.
 
 ![Git workflow](../images/contributing_workflow.png)
 
-In the following subsections, we explain the contribution workflow for one of the repositories (e.g. onos-config). The same workflow can be used
-for other repos under [onosproject](https://github.com/onosproject).
-
+[!NOTE]
+In the following subsections, we explain the contribution workflow for one of the repositories, namely `onos-config`. The same workflow can be used for all the other repos under [onosproject](https://github.com/onosproject).
+In the following examples just substitute any `onos-config` reference with the name of the repo you are working on, such as `onos-topo` or `simulators`. Any step that do not have `onos-config` in them can be used as is. 
+  
 ### 1. Fork on GitHub
 
 1. Visit https://github.com/onosproject/onos-config 
@@ -135,7 +136,7 @@ and style.
 Commit changes made in response to review comments to the same branch on your
 fork.
 
-Very small PRs are easy to review.  Very large PRs are very difficult to review.
+Very small PRs are easy to review. Very large PRs are very difficult to review.
 
 #### Squash and Merge
 
