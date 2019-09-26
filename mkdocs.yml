@@ -17,7 +17,8 @@ nav:
       - Development Prerequisites: developers/prerequisites.md
       - Developer Workflow: developers/dev_workflow.md
       - Contribution Guidelines: developers/contributing.md
-   - Configuration Subsystem: 
+   - Configuration Subsystem:
+      - An Introduction to Configuration Susbsytem: onos-config/docs/README.md 
       - How To Build Configuration Subsystem?: onos-config/docs/build.md
       - How To Run Configuration Subsystem?: onos-config/docs/run.md
       - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
