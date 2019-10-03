@@ -23,4 +23,10 @@ The platform enables comprehensive set of network operations:
 
 ![architecture](images/uonos_architecture.png)
 
+## Additional Resources
+### Talks at ONF Connect 2019
+* [µONOS Project Overview](https://vimeo.com/360845205)
+* [µONOS for Developers](https://vimeo.com/360846886)
+* [Device Configuration in µONOS](https://vimeo.com/360886688)
+
 </div>
