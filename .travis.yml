@@ -1,10 +1,29 @@
-sudo: false
-language: python
-install:
-- pip install pygments
-- pip install mkdocs
-- pip install mkdocs-material
+sudo: required
+dist: trusty
+
+git:
+  depth: false
+
+services:
+  - docker
+
+env:
+  global: 
+    - GO111MODULE=on
+
+
 script:
-- git clean -f -d -x
-after_success:
-- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then chmod +x build/build_docs.sh && ./build/build_docs.sh; fi' 
+- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then make docs; fi
+
+before_deploy:
+      make docs
+
+deploy:
+  - provider: pages
+    edge: false
+    github_token: ${GH_TOKEN}
+    local_dir: docs/site
+    skip_cleanup: true
+    on:
+      repo: onosproject/onos-docs
+      all_branches: true
