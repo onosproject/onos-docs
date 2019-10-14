@@ -17,10 +17,6 @@ theme:
     next: 'Next'
 
 
-
-
-
-
 docs_dir: 'content'
 
 markdown_extensions:

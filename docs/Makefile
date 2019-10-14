@@ -4,7 +4,7 @@
 #######
 
 DOCS_VERIFY_SKIP ?= true
-DOCS_LINT_SKIP ?= true
+DOCS_LINT_SKIP ?= false
 
 ONOS_DOCS_BUILD_IMAGE ?= onos-docs
 ONOS_DOCS_CHECK_IMAGE ?= $(ONOS_DOCS_BUILD_IMAGE)-check
@@ -31,20 +31,14 @@ docs-build: docs-clean docs-image
 	docker run $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/bash -c "./docker-entrypoint.sh && mkdocs build && chown -R $(shell id -u):$(shell id -g) ./site"
 
 
-docs-verify: docs-build
+docs-checker-image:
+		docker build -t $(ONOS_DOCS_CHECK_IMAGE) -f check.Dockerfile ./
+
+docs-verify: docs-checker-image docs-build
 	@if [ "$(DOCS_VERIFY_SKIP)" != "true" ]; then \
-		docker build -t $(ONOS_DOCS_CHECK_IMAGE) -f check.Dockerfile ./; \
 		docker run --rm -v $(CURDIR):/app $(ONOS_DOCS_CHECK_IMAGE) /verify.sh; \
 	else \
 		echo "DOCS_VERIFY_SKIP is true: no verification done."; \
-	fi
-
-docs-lint:
-	@if [ "$(DOCS_LINT_SKIP)" != "true" ]; then \
-		docker build -t $(ONOS_DOCS_CHECK_IMAGE) -f check.Dockerfile ./ && \
-		docker run --rm -v $(CURDIR):/app $(ONOS_DOCS_CHECK_IMAGE) /lint.sh; \
-	else \
-		echo "DOCS_LINT_SKIP is true: no linting done."; \
 	fi
 
 docs-clean:
