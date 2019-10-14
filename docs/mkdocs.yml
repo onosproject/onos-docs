@@ -2,7 +2,44 @@ site_name: onosproject
 site_url: https://www.onosproject.org
 site_description: Open Network Operating System (ONOS)
 site_author: Open Networking Foundation
-theme: 'material'
+
+dev_addr: 0.0.0.0:8000
+
+theme:
+  name: 'material'
+  custom_dir: 'theme'
+  language: en
+  include_sidebar: true
+  feature:
+    tabs: false
+  i18n:
+    prev: 'Previous'
+    next: 'Next'
+
+
+
+
+
+
+docs_dir: 'content'
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      use_pygments: false # hljs is used instead of pygment for TOML highlighting support
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.snippets:
+      check_paths: true
+  - markdown_include.include:
+
+
+
 
 # Repository
 repo_name: onosproject

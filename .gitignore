@@ -7,4 +7,5 @@ bin
 *.iml
 .springBeans
 site
-
+docs/content/onos-*
+docs/site
