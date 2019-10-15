@@ -10,17 +10,18 @@ theme:
   custom_dir: 'theme'
   language: en
   include_sidebar: true
+  logo: images/onos_logo.jpg 
   feature:
     tabs: false
   i18n:
     prev: 'Previous'
     next: 'Next'
 
-
 docs_dir: 'content'
 
 markdown_extensions:
   - attr_list
+  - codehilite
   - admonition
   - footnotes
   - pymdownx.details
@@ -75,9 +76,6 @@ nav:
       - GUI Architecture: onos-gui/docs/architecture.md
       - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
       - How To Run ONOS GUI?: onos-gui/docs/run.md
-
-markdown_extensions:
-  - codehilite
 
 extra:
   social:
