@@ -1,5 +1,5 @@
 # onos-docs
-Consolidate documentation for the ONOS project, available at [https://docs.onosproject.org](https://docs.onosproject.org).
+Consolidated documentation for the ONOS project, available at [https://docs.onosproject.org](https://docs.onosproject.org).
 
 See [contributing.md](docs/content/developers/contributing.md) and
 [documentation.md](docs/content/developers/documentation.md)
