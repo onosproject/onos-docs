@@ -10,7 +10,7 @@ theme:
   custom_dir: 'theme'
   language: en
   include_sidebar: true
-  logo: images/onos_logo.jpg 
+  logo: images/onos_logo_2017.jpg 
   feature:
     tabs: false
   i18n:
