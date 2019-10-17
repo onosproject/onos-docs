@@ -3,7 +3,7 @@
 ## Mailing list
 
 The onos-config project currently leverages the `ONOS` developers mailing list:
-[onos-dev@onosprojects.org](onos-dev@onosproject.org)  
+<onos-dev@onosproject.org>  
 **Note** We kindly ask to have the start of the subject to be `[onos-config]`
 
 ## Slack channel
