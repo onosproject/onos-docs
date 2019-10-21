@@ -1,87 +1,65 @@
-site_name: onosproject
-site_url: https://www.onosproject.org
-site_description: Open Network Operating System (ONOS)
-site_author: Open Networking Foundation
-
 dev_addr: 0.0.0.0:8000
-
+docs_dir: content
+edit_uri: ""
+extra:
+  social:
+  - link: https://github.com/onosproject
+    type: github
+  - link: https://onosproject.slack.com/
+    type: slack
+  - link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
+    type: youtube
+markdown_extensions:
+- attr_list
+- codehilite
+- admonition
+- footnotes
+nav:
+- ONOS: README.md
+- Developers:
+  - Contacts and Calenders: developers/community-info.md
+  - Development Prerequisites: developers/prerequisites.md
+  - Developer Workflow: developers/dev_workflow.md
+  - Contribution Guidelines: developers/contributing.md
+- Configuration Subsystem:
+  - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
+  - How To Build Configuration Subsystem?: onos-config/docs/build.md
+  - How To Run Configuration Subsystem?: onos-config/docs/run.md
+  - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
+  - Administrative And Diagnostic CLI: onos-config/docs/cli.md
+  - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
+  - Northbound gNMI Service: onos-config/docs/gnmi.md
+  - gNMI Extensions: onos-config/docs/gnmi_extensions.md
+- Topology Subsystem:
+  - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
+- Command Line Interface Subsystem (CLI):
+  - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
+- Zero-Touch Provisioning (ZTP) Subsystem:
+  - How To Install And Run ZTP?: onos-ztp/docs/setup.md
+- Test Tools:
+  - How To Install and Run ONIT?: onos-test/docs/setup.md
+  - How To Use ONIT?: onos-test/docs/run.md
+  - How To Write and Run Tests?: onos-test/docs/testing.md
+- Graphical User Interface (GUI):
+  - ONOS-GUI Subsystem: onos-gui/docs/README.md
+  - Configuration GUI: onos-gui/docs/config-gui.md
+  - GUI Architecture: onos-gui/docs/architecture.md
+  - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
+  - How To Run ONOS GUI?: onos-gui/docs/run.md
+repo_name: onosproject
+repo_url: https://github.com/onosproject
+site_author: Open Networking Foundation
+site_description: Open Network Operating System (ONOS)
+site_name: onosproject
+site_url: ""
 theme:
-  name: 'material'
-  custom_dir: 'theme'
-  language: en
-  include_sidebar: true
-  logo: images/onos_logo_2017.png 
+  custom_dir: theme
   feature:
     tabs: false
   i18n:
-    prev: 'Previous'
-    next: 'Next'
-
-docs_dir: 'content'
-
-markdown_extensions:
-  - attr_list
-  - codehilite
-  - admonition
-  - footnotes
-  - pymdownx.details
-  - pymdownx.inlinehilite
-  - pymdownx.highlight:
-      use_pygments: false # hljs is used instead of pygment for TOML highlighting support
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist
-  - pymdownx.snippets:
-      check_paths: true
-  - markdown_include.include:
-
-
-
-
-# Repository
-repo_name: onosproject
-repo_url: https://github.com/onosproject
-edit_uri: ''
-
-# Page tree
-nav:
-   - ONOS: README.md
-   - Developers:
-      - Contacts and Calenders: developers/community-info.md
-      - Development Prerequisites: developers/prerequisites.md
-      - Developer Workflow: developers/dev_workflow.md
-      - Contribution Guidelines: developers/contributing.md
-   - Configuration Subsystem:
-      - An Introduction to Configuration Susbsytem: onos-config/docs/README.md 
-      - How To Build Configuration Subsystem?: onos-config/docs/build.md
-      - How To Run Configuration Subsystem?: onos-config/docs/run.md
-      - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
-      - Administrative And Diagnostic CLI: onos-config/docs/cli.md
-      - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
-      - Northbound gNMI Service: onos-config/docs/gnmi.md
-      - gNMI Extensions: onos-config/docs/gnmi_extensions.md
-   - Topology Subsystem:
-      - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
-   - Command Line Interface Subsystem (CLI):
-      - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
-   - Zero-Touch Provisioning (ZTP) Subsystem:
-      - How To Install And Run ZTP?: onos-ztp/docs/setup.md
-   - Test Tools:
-      - How To Install and Run ONIT?: onos-test/docs/setup.md
-      - How To Use ONIT?: onos-test/docs/run.md
-      - How To Write and Run Tests?: onos-test/docs/testing.md
-   - Graphical User Interface (GUI):
-      - ONOS-GUI Subsystem: onos-gui/docs/README.md
-      - Configuration GUI: onos-gui/docs/config-gui.md
-      - GUI Architecture: onos-gui/docs/architecture.md
-      - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
-      - How To Run ONOS GUI?: onos-gui/docs/run.md
-
-extra:
-  social:
-    - type: 'github'
-      link: 'https://github.com/onosproject'
-    - type: 'slack'
-      link: 'https://onosproject.slack.com/'
-    - type: 'youtube'
-      link: 'https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw'
+    next: Next
+    prev: Previous
+  include_sidebar: true
+  language: en
+  logo: images/onos_logo_2017.png
+  name: material
