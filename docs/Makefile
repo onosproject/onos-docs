@@ -29,7 +29,7 @@ docs-image:
 	docker build -t $(ONOS_DOCS_BUILD_IMAGE) -f docs.Dockerfile ./
 
 docs-build: docs-clean docs-image
-	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl
+	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
 
 docs-checker-image:
 		docker build -t $(ONOS_DOCS_CHECK_IMAGE) -f check.Dockerfile ./

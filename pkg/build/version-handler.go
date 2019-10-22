@@ -24,21 +24,10 @@ import (
 	"gopkg.in/src-d/go-git.v4"
 )
 
-// TagName repo tag name
-type TagName int
-
-// latest tag name
-const (
-	Latest TagName = iota
-)
-
-func (t TagName) String() string {
-	return [...]string{"v1.0"}[t]
-}
-
 // VersionHandler handle different versions of docs
-func VersionHandler(config *utils.DocsConfig) {
+func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 	versions := config.GetDocsYamlConfig().Versions
+	db.LatestVersion = config.GetDocsYamlConfig().LatestVersion
 	err := os.MkdirAll(common.SiteDirName, common.PermissionMode)
 	utils.CheckIfError(err)
 	versionsArray := make([]string, len(versions))
@@ -46,10 +35,12 @@ func VersionHandler(config *utils.DocsConfig) {
 	for index, val := range versions {
 		versionsArray[index] = val.Ver
 	}
+	db.versions = versionsArray
 
 	for _, val := range versions {
+		db.tagName = val.Ver
 		switch val.Ver {
-		case Latest.String():
+		case db.LatestVersion:
 			repos := val.Repos
 			for _, repo := range repos {
 				path := os.Args[2] + repo.Name
@@ -71,7 +62,7 @@ func VersionHandler(config *utils.DocsConfig) {
 				err = utils.RemoveContents(path)
 				utils.CheckIfError(err)
 			}
-			build(versionsArray, Latest.String())
+			db.build()
 		default:
 			repos := val.Repos
 			docsDir := os.Args[2] + val.Ver + "/"
@@ -100,7 +91,7 @@ func VersionHandler(config *utils.DocsConfig) {
 				err = utils.RemoveContents(path)
 				utils.CheckIfError(err)
 			}
-			build(versionsArray, val.Ver)
+			db.build()
 		}
 	}
 }

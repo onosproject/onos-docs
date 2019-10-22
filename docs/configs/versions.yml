@@ -1,5 +1,5 @@
 versions:
-  - ver: 'v1.0'
+  - ver: 'v0.2'
     repos:
         - name: onos-config
           url: https://github.com/onosproject/onos-config
@@ -33,3 +33,4 @@ versions:
         - name: onos-test
           url: https://github.com/onosproject/onos-test
           tagName: v0.1-onfconnect
+LatestVersion: "v0.2"

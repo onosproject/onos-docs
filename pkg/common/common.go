@@ -16,7 +16,7 @@ package common
 
 // Common constant values
 const (
-	MkdocsConfig   = "mkdocs.yml"
-	SiteDirName    = "./site/"
-	PermissionMode = 0755
+	MkdocsConfigPath = "./mkdocs.yml"
+	SiteDirName      = "./site/"
+	PermissionMode   = 0755
 )

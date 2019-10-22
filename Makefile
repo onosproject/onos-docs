@@ -8,8 +8,8 @@ DOCS_MANAGER_TEST_VERSION := latest
 docs: # @HELP Build documentation site
 docs: deps build-docs-manager linters license_check images
 	make -C ./docs docs
-
 docs-serve: # @HELP Serve the documentation site localy.
+docs-serve: deps build-docs-manager images
 	make -C ./docs docs-serve
 
 

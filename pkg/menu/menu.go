@@ -74,8 +74,7 @@ func getMenuFileContent(f string, u string) ([]byte, error) {
 
 // Build the menu.
 func Build(versionsInfo types.VersionsInformation, branches []string, menuContent Content) error {
-
-	manifestFile := common.MkdocsConfig
+	manifestFile := common.MkdocsConfigPath
 	manif, err := manifest.Read(manifest.FileName)
 	if err != nil {
 		return err

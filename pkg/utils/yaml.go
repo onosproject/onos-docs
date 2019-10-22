@@ -43,6 +43,7 @@ type DocsYamlConfig struct {
 			TagName string `yaml:"tagName"`
 		} `yaml:"repos"`
 	} `yaml:"versions"`
+	LatestVersion string `yaml:"LatestVersion"`
 }
 
 // GetDocsYamlConfig return the docs yaml config data structure

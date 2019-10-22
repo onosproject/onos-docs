@@ -26,6 +26,7 @@ func main() {
 	config := utils.NewDocsConfig(os.Args[1])
 	err := config.Parse()
 	utils.CheckIfError(err)
-	build.VersionHandler(config)
+	var db build.DocsBuilderConfig
+	db.VersionHandler(config)
 
 }
