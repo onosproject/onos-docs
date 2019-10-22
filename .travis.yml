@@ -22,18 +22,7 @@ env:
 before_script:
   - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin latest
 
-before_deploy:
-      make docs
 
-deploy:
-  - provider: pages
-    edge: false
-    github_token: ${GH_TOKEN}
-    local_dir: docs/site
-    skip_cleanup: true
-    on:
-      repo: onosproject/onos-docs
-      all_branches: true
 
 cache:
   directories:
@@ -45,3 +34,13 @@ jobs:
       script:
         - make docs
         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
+    - stage : deploy
+      deploy:
+        - provider: pages
+          edge: false
+          github_token: ${GH_TOKEN}
+          local_dir: docs/site
+          skip_cleanup: true
+          on:
+            repo: onosproject/onos-docs
+            all_branches: true
