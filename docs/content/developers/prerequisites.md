@@ -12,13 +12,27 @@ guidelines. To install the tool, use this command:
 ```bash
 > curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin latest
 ```
+> The directory ~/go/bin needs to be present in your $PATH environment variable
+>for this to work after being installed 
 
 ## Docker
 [Docker] is required to build the project Docker images and also to compile `*.proto` files into Go source files.
 
 ## Local kubernetes environment
 Some form of local kubernetes development environment is also needed.
-The core team uses [Kind], but there are other options such as [Minikube].
+The core team uses [Kind], but there are other options such as [Minikube] and [MicroK8s].
+> Some docker containers may need access to privileged rights e.g. `onos-config:debug`,
+> `onos-topo:debug` and `opennetworking/mn-stratum` and so may not be suited to
+> Kubernetes environments that cannot grant these rights
+
+## Python 3
+Python 3 needs to be installed to run the license checking tool in many on the Makefiles.
+> The version provided by your OS will usually be sufficient
+
+Verify it is installed with
+```bash
+python3 --version
+```  
 
 ## IDE
 Some form of an integrated development environment is also recommended.
@@ -41,5 +55,6 @@ automatically.
 [Docker]: https://docs.docker.com/install/
 [Kind]: https://github.com/kubernetes-sigs/kind
 [Minikube]: https://kubernetes.io/docs/tasks/tools/install-minikube/
+[MicroK8s]: https://microk8s.io/
 [GoLand IDE]: https://www.jetbrains.com/go/
 [Visual Studio Code]: https://code.visualstudio.com
