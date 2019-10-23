@@ -35,6 +35,7 @@ jobs:
         - make docs
         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
     - stage : deploy
+      if: type != pull_request
       deploy:
         - provider: pages
           edge: false

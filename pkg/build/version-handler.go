@@ -47,9 +47,9 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 				err := os.MkdirAll(path, common.PermissionMode)
 				utils.CheckIfError(err)
 				cloneOptions := git.CloneOptions{
-					URL:      repo.URL,
-					Tags:     git.AllTags,
-					Progress: os.Stdout,
+					URL:   repo.URL,
+					Depth: 1,
+					Tags:  git.NoTags,
 				}
 				gitRepo := repository.New().
 					SetCloneOptions(cloneOptions).
@@ -74,9 +74,8 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 				}
 
 				cloneOptions := git.CloneOptions{
-					URL:      repo.URL,
-					Tags:     git.AllTags,
-					Progress: os.Stdout,
+					URL:  repo.URL,
+					Tags: git.AllTags,
 				}
 				gitRepo := repository.New().
 					SetCloneOptions(cloneOptions).
