@@ -19,10 +19,9 @@ import (
 	"log"
 
 	"github.com/onosproject/onos-docs/pkg/common"
-
-	"github.com/containous/structor/file"
 	"github.com/onosproject/onos-docs/pkg/manifest"
 	"github.com/onosproject/onos-docs/pkg/types"
+	utils "github.com/onosproject/onos-docs/pkg/utils"
 
 	"github.com/pkg/errors"
 )
@@ -65,7 +64,7 @@ func getMenuFileContent(f string, u string) ([]byte, error) {
 		return content, nil
 	}
 
-	content, err := file.Download(u)
+	content, err := utils.Download(u)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to download menu template")
 	}
