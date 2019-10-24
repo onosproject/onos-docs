@@ -34,7 +34,6 @@ jobs:
       script:
         - make docs
         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
-    - stage : deploy
       deploy:
         - provider: pages
           edge: false
