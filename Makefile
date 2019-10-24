@@ -16,12 +16,23 @@ docs-serve: deps build-docs-manager images
 build-docs-manager: # @HELP build docs-manager application
 	go build -o build/_output/docs-manager ./cmd/docs-manager
 
-images: # @HELP build docs-manager application image
+
+onos-docs-base-image:
+	docker build . -f build/base/Dockerfile \
+        		--build-arg DOCS_MANAGER_BUILD_VERSION=${DOCS_MANAGER_BUILD_VERSION} \
+        		-t onosproject/onos-docs-base:${DOCS_MANAGER_TEST_VERSION}
+
+onos-docs-manager-image:
 	@go mod vendor
 	docker build . -f build/docs-manager/Dockerfile \
-		--build-arg DOCS_MANAGER_BUILD_VERSION=${DOCS_MANAGER_BUILD_VERSION} \
-		-t onosproject/onos-docs-manager:${DOCS_MANAGER_TEST_VERSION}
+    		--build-arg DOCS_MANAGER_BUILD_VERSION=${DOCS_MANAGER_BUILD_VERSION} \
+    		-t onosproject/onos-docs-manager:${DOCS_MANAGER_TEST_VERSION}
 	@rm -rf vendor
+
+
+images: # @HELP build docs-manager application image
+images: onos-docs-manager-image
+
 
 linters: # @HELP examines Go source code and reports coding problems
 	golangci-lint run
