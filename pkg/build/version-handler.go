@@ -15,7 +15,10 @@
 package build
 
 import (
+	"fmt"
 	"os"
+
+	"gopkg.in/src-d/go-git.v4/plumbing"
 
 	"github.com/onosproject/onos-docs/pkg/common"
 
@@ -27,7 +30,7 @@ import (
 // VersionHandler handle different versions of docs
 func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 	versions := config.GetDocsYamlConfig().Versions
-	db.LatestVersion = config.GetDocsYamlConfig().LatestVersion
+	db.latestVersion = config.GetDocsYamlConfig().LatestVersion
 	err := os.MkdirAll(common.SiteDirName, common.PermissionMode)
 	utils.CheckIfError(err)
 	versionsArray := make([]string, len(versions))
@@ -40,7 +43,7 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 	for _, val := range versions {
 		db.tagName = val.Ver
 		switch val.Ver {
-		case db.LatestVersion:
+		case db.latestVersion:
 			repos := val.Repos
 			for _, repo := range repos {
 				path := os.Args[2] + repo.Name
@@ -73,9 +76,21 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 					utils.CheckIfError(err)
 				}
 
-				cloneOptions := git.CloneOptions{
-					URL:  repo.URL,
-					Tags: git.AllTags,
+				var cloneOptions git.CloneOptions
+
+				if repo.TagName != "master" {
+					cloneOptions = git.CloneOptions{
+						URL:           repo.URL,
+						ReferenceName: plumbing.ReferenceName(fmt.Sprintf("refs/tags/%s", repo.TagName)),
+						SingleBranch:  true,
+					}
+				} else {
+					cloneOptions = git.CloneOptions{
+						URL:           repo.URL,
+						ReferenceName: plumbing.ReferenceName(fmt.Sprintf("refs/heads/%s", repo.TagName)),
+						SingleBranch:  true,
+					}
+
 				}
 				gitRepo := repository.New().
 					SetCloneOptions(cloneOptions).
@@ -84,8 +99,6 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 					Build()
 
 				err := gitRepo.Clone()
-				utils.CheckIfError(err)
-				err = gitRepo.CheckOutTag()
 				utils.CheckIfError(err)
 				err = utils.RemoveContents(path)
 				utils.CheckIfError(err)
