@@ -40,6 +40,7 @@ jobs:
              - make deps
              - make build-docs-manager
              - make images
+             - make -C ./docs docs
              - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
       deploy:
         - provider: pages
