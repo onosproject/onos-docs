@@ -19,6 +19,8 @@ import (
 	"os"
 	"testing"
 
+	"gopkg.in/src-d/go-git.v4/plumbing"
+
 	"gopkg.in/src-d/go-git.v4"
 
 	"gotest.tools/assert"
@@ -86,5 +88,18 @@ func TestCheckOut(t *testing.T) {
 	err = rep.CheckOutTag()
 	assert.Equal(t, err, nil)
 	err = os.RemoveAll(dir)
+	assert.Equal(t, err, nil)
+}
+
+// TestCloneInMemory test clone a repo in a memory storage
+func TestCloneInMemory(t *testing.T) {
+	rep := Repository{
+		cloneOptions: git.CloneOptions{
+			URL:           "https://github.com/onosproject/onos-docs",
+			ReferenceName: plumbing.ReferenceName("refs/heads/gh-pages"),
+			SingleBranch:  true,
+		},
+	}
+	err := rep.CloneInMemory()
 	assert.Equal(t, err, nil)
 }

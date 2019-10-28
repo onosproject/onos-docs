@@ -26,7 +26,7 @@ import (
 
 // DocsBuilderConfig docs builder configuration information
 type DocsBuilderConfig struct {
-	LatestVersion string
+	latestVersion string
 	versions      []string
 	tagName       string
 }
@@ -39,7 +39,7 @@ func (db *DocsBuilderConfig) build() {
 
 	manifestPath := common.MkdocsConfigPath
 	var siteDir string
-	if db.tagName == db.LatestVersion {
+	if db.tagName == db.latestVersion {
 		docsDir = os.Args[2]
 		siteDir = common.SiteDirName
 	} else {
@@ -65,7 +65,7 @@ func (db *DocsBuilderConfig) build() {
 
 	versionsInfo := types.VersionsInformation{
 		Current:     db.tagName,
-		Latest:      db.LatestVersion,
+		Latest:      db.latestVersion,
 		CurrentPath: docsDir,
 	}
 

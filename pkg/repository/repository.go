@@ -18,6 +18,8 @@ import (
 	utils "github.com/onosproject/onos-docs/pkg/utils"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing"
+	"gopkg.in/src-d/go-git.v4/plumbing/object"
+	"gopkg.in/src-d/go-git.v4/storage/memory"
 )
 
 // Repository data structure to represent a repository information
@@ -90,6 +92,14 @@ func (repo *Repository) Clone() error {
 	return err
 }
 
+// CloneInMemory clones a repo in a memory storage
+func (repo *Repository) CloneInMemory() error {
+	storage := memory.NewStorage()
+	r, err := git.Clone(storage, nil, &repo.cloneOptions)
+	repo.SetGitRepo(r)
+	return err
+}
+
 // GetTag get a repo tag reference based on a given tag name
 func (repo *Repository) GetTag() (*plumbing.Reference, error) {
 	_, err := repo.gitRepo.Worktree()
@@ -117,5 +127,20 @@ func (repo *Repository) CheckOutTag() error {
 	})
 
 	return err
+}
 
+// GetTreeEntries get repo top level tree entries
+func (repo *Repository) GetTreeEntries() []object.TreeEntry {
+	r := repo.gitRepo
+	ref, err := r.Head()
+	utils.CheckIfError(err)
+	// retrieving the commit object
+	commit, err := r.CommitObject(ref.Hash())
+	utils.CheckIfError(err)
+	// retrieve the tree from the commit
+	tree, err := commit.Tree()
+	utils.CheckIfError(err)
+
+	treeEntries := tree.Entries
+	return treeEntries
 }
