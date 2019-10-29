@@ -5,6 +5,7 @@ nav:
   - Development Prerequisites: developers/prerequisites.md
   - Developer Workflow: developers/dev_workflow.md
   - Contribution Guidelines: developers/contributing.md
+  - GoDoc Pages: developers/godocs.md
 - Configuration Subsystem:
   - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
   - How To Build Configuration Subsystem?: onos-config/docs/build.md
