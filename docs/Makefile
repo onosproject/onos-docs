@@ -17,7 +17,7 @@ DOCKER_RUN_DOC_OPTS := --rm $(DOCKER_RUN_DOC_MOUNTS) -p $(DOCKER_RUN_DOC_PORT):8
 
 
 # Default: generates the documentation into $(SITE_DIR)
-docs: docs-clean docs-image docs-lint docs-build 
+docs: docs-clean docs-image docs-build
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
 docs-serve: docs-build
