@@ -35,7 +35,8 @@ images: onos-docs-manager-image
 
 
 linters: # @HELP examines Go source code and reports coding problems
-	golangci-lint run
+	curl -o .golangci.yml https://raw.githubusercontent.com/onosproject/onos-test/master/.golangci.yml
+	golangci-lint run --config .golangci.yml
 
 license_check: # @HELP examine and ensure license headers exist
 	./build/licensing/boilerplate.py -v
