@@ -73,5 +73,5 @@ Rules for MkDocs (Python) are at [https://daringfireball.net/projects/markdown/s
 
 
 [onos-docs]: https://github.com/onosproject/onos-docs
-[Mkdocs]: (https://www.mkdocs.org)
-[Travis]: (https://travis-ci.org/) 
+[Mkdocs]: https://www.mkdocs.org
+[Travis]: https://travis-ci.org/ 
