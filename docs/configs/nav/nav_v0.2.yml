@@ -15,6 +15,16 @@ nav:
   - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
   - Northbound gNMI Service: onos-config/docs/gnmi.md
   - gNMI Extensions: onos-config/docs/gnmi_extensions.md
+  - APIs:
+      - Admin API: onos-config/docs/api/admin.md
+      - Diagnostic API: onos-config/docs/api/diags.md
+      - Types:
+          - Common Change Types: onos-config/docs/api/types_change.md
+          - Device Change Types: onos-config/docs/api/types_change_device.md
+          - Network Change Types: onos-config/docs/api/types_change_network.md
+          - Common Snapshot Types: onos-config/docs/api/types_snapshot.md
+          - Device Snapshot Types: onos-config/docs/api/types_snapshot_device.md
+          - Network Snapshot Types: onos-config/docs/api/types_snapshot_network.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
 - Command Line Interface Subsystem (CLI):
