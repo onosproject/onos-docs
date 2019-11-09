@@ -22,4 +22,5 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v2 v2.2.4
 	gotest.tools v2.2.0+incompatible
+	k8s.io/klog v1.0.0
 )

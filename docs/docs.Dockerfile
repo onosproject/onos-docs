@@ -4,5 +4,3 @@ ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.loc
 COPY ./  /mkdocs
 WORKDIR /mkdocs
 VOLUME /mkdocs
-
-

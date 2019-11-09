@@ -16,12 +16,12 @@ package menu
 
 import (
 	"io/ioutil"
-	"log"
 
 	"github.com/onosproject/onos-docs/pkg/common"
 	"github.com/onosproject/onos-docs/pkg/manifest"
 	"github.com/onosproject/onos-docs/pkg/types"
 	utils "github.com/onosproject/onos-docs/pkg/utils"
+	log "k8s.io/klog"
 
 	"github.com/pkg/errors"
 )
@@ -81,7 +81,7 @@ func Build(versionsInfo types.VersionsInformation, branches []string, menuConten
 
 	manifestDocsDir := manifest.GetDocsDir(manif, manifestFile)
 
-	log.Printf("Using docs_dir from manifest: %s", manifestDocsDir)
+	log.Info("Using docs_dir from manifest: ", manifestDocsDir)
 
 	manifestJsFilePath, err := writeJsFile(manifestDocsDir, menuContent, versionsInfo, branches)
 	if err != nil {
