@@ -27,6 +27,10 @@ nav:
           - Network Snapshot Types: onos-config/docs/api/types_snapshot_network.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
+  - APIs:
+      - Admin API: onos-topo/docs/api/admin.md
+      - Diagnostic API: onos-topo/docs/api/diags.md
+      - Device API: onos-topo/docs/api/device.md
 - Command Line Interface Subsystem (CLI):
   - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
 - Zero-Touch Provisioning (ZTP) Subsystem:
