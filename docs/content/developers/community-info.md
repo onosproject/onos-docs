@@ -2,17 +2,17 @@
 
 ## Mailing list
 
-The onos-config project currently leverages the `ONOS` developers mailing list:
+The µONOS project currently leverages the `ONOS` developers mailing list:
 <onos-dev@onosproject.org>  
-**Note** We kindly ask to have the start of the subject to be `[onos-config]`
+**Note** We kindly ask to have the start of the subject to be `[micro-onos]`
 
 ## Slack channel
-The onos-config project has a slack channel in the `onosproject` slack: `#micro-onos`.
+The µONOS project has a slack channel in the `onosproject` slack: `#micro-onos`.
 If you want to join the `onosproject` slack please join [here](https://slackin.onosproject.org) and the subscribe to our channel.
 
 ## Calendar
 
-The onos-config project leverages the common `ONOS` calendar which can be found at this 
+The µONOS project leverages the common `ONOS` calendar which can be found at this 
 [link](https://www.google.com/calendar/embed?src=onosproject.org_6l261cnjim09dv9sulta3bgcmc%40group.calendar.google.com&ctz=America/Los_Angeles).  
 If you instead would like to add the calendar to your personal Google Calendar, please add the copy the following string  
  ```
@@ -23,7 +23,7 @@ If you instead would like to add the calendar to your personal Google Calendar, 
 
 ## Daily Stand-up 
 
-The onos-config project team holds a short stand-up every day at 10 AM PST, 6 PM GMT, 7 PM CET. 
+The µONOS project team holds a short stand-up every day at 10 AM PST, 6 PM GMT, 7 PM CET. 
 Feel free to join to learn what the team is up to and discuss your latest work with us.
 [meeting link](https://meet.google.com/pcn-wbei-utz) 
 

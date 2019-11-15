@@ -31,7 +31,7 @@ const (
 	// FileName file name of the mkdocs manifest file.
 	FileName = "mkdocs.yml"
 	// TempPrefixEnvName temp prefix for environment variable.
-	TempPrefixEnvName = "STRUCTOR_TEMP_"
+	TempPrefixEnvName = "ONOS_TEMP_"
 )
 
 // Read Reads the manifest.
@@ -83,7 +83,6 @@ func Write(manifestFilePath string, manif map[string]interface{}) error {
 	}
 
 	out = rewriteEnvVariables(out)
-
 	return ioutil.WriteFile(manifestFilePath, out, os.ModePerm)
 }
 
@@ -97,8 +96,6 @@ func getDocsDirAttribute(manif map[string]interface{}) string {
 	if value, ok := manif["docs_dir"]; ok {
 		return value.(string)
 	}
-
-	// https://www.mkdocs.org/user-guide/configuration/#docs_dir
 	return "docs"
 }
 
@@ -134,11 +131,9 @@ func AddEditionURI(manif map[string]interface{}, version string, docsDirBase str
 	}
 
 	if val, ok := manif["edit_uri"]; ok && len(val.(string)) > 0 && !override {
-		// noop
 		return
 	}
 
 	docsDir := getDocsDirAttribute(manif)
-
 	manif["edit_uri"] = path.Join("edit", v, docsDirBase, docsDir) + "/"
 }

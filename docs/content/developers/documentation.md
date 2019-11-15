@@ -21,6 +21,9 @@ The onos-docs building and publishing process is illustrated as follows:
 
 ![onos-docs-manager](../images/onos-docs-manager.png)
  
+ 
+ **Note**: onos-docs-manager uses some of the utility functions that are implemented part of [structor](https://github.com/containous/structor) project.
+ 
 
 ## How to build and browse onos docs locally?
 To build and browse onos docs locally, :

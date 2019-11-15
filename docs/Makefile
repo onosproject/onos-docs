@@ -1,10 +1,4 @@
-
-#######
-# This Makefile contains all targets related to the documentation
-#######
-
-DOCS_VERIFY_SKIP ?= true
-DOCS_LINT_SKIP ?= false
+# This Makefile contains all targets related to building onos-docs website
 
 ONOS_DOCS_BUILD_IMAGE ?= onos-docs
 ONOS_DOCS_CHECK_IMAGE ?= $(ONOS_DOCS_BUILD_IMAGE)-check
@@ -31,16 +25,6 @@ docs-image:
 docs-build: docs-clean docs-image
 	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
 
-docs-checker-image:
-		docker build -t $(ONOS_DOCS_CHECK_IMAGE) -f check.Dockerfile ./
-
-docs-verify: docs-checker-image docs-build
-	@if [ "$(DOCS_VERIFY_SKIP)" != "true" ]; then \
-		docker run --rm -v $(CURDIR):/app $(ONOS_DOCS_CHECK_IMAGE) /verify.sh; \
-	else \
-		echo "DOCS_VERIFY_SKIP is true: no verification done."; \
-	fi
-
 docs-clean:
 	rm -rf $(SITE_DIR) 
 	rm -rf content/master
@@ -50,4 +34,4 @@ docs-clean:
 	rm -rf content/experimental
 
 
-.PHONY: all docs-verify docs docs-clean docs-build docs-lint
+.PHONY: all docs docs-clean docs-build docs-lint

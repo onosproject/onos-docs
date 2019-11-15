@@ -20,6 +20,7 @@ import (
 	"gopkg.in/src-d/go-git.v4/plumbing"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
 	"gopkg.in/src-d/go-git.v4/storage/memory"
+	log "k8s.io/klog"
 )
 
 // Repository data structure to represent a repository information
@@ -86,7 +87,7 @@ func (repo *Repository) SetTagName(tagName string) Builder {
 
 //Clone clones a repo based on a given url and a path
 func (repo *Repository) Clone() error {
-	utils.Info("git clone %s", repo.cloneOptions.URL)
+	log.Info("git clone ", repo.cloneOptions.URL)
 	r, err := git.PlainClone(repo.path, false, &repo.cloneOptions)
 	repo.SetGitRepo(r)
 	return err
