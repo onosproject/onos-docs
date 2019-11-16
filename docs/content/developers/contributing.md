@@ -18,7 +18,7 @@ In the following examples just substitute any `onos-config` reference with the n
   
 ### 1. Fork on GitHub
 
-1. Visit https://github.com/onosproject/onos-config 
+1. Visit <https://github.com/onosproject/onos-config> 
 2. Click `Fork` button (top right) to establish your own GitHub repository fork.
 
 ### 2. Clone Fork
@@ -174,7 +174,7 @@ _If you have upstream write access_, please refrain from using the
 `Revert` button in the GitHub UI for creating the PR, because GitHub
 will create the PR branch inside the main repository rather than inside your fork.
 
-#### 1. Create a branch and sync it with upstream.
+#### 1. Create a branch and sync it with upstream
 
 ```sh
 # create a branch
@@ -203,13 +203,13 @@ git revert SHA
 
 The above will create a new commit reverting the changes.
 
-#### 3. Push this new commit to your remote.
+#### 3. Push this new commit to your remote
 
 ```sh
 git push ${your_remote_name} myrevert
 ```
 
-#### 4. [Create a pull request](#7-create-a-pull-request) using this branch.
+#### 4. [Create a pull request](#7-create-a-pull-request) using this branch
 
 ## Community Guidelines
 
