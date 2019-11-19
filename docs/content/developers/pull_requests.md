@@ -51,14 +51,11 @@ Fixes #90
 #       modified:   docs/Pull_requests.md
 #
 ```
-
 ### Open a Pull Request
 When you open a pull request for _myfeature_ you need to add the PR to a `project` (e.g. Northbound) through the github UI. 
 Please also assign a reviewer out of the suggested ones. If none are suggested please pick one from the core team.     
 
 More information on opening pull requests can be found [in the GitHub documentation](https://help.github.com/en/articles/creating-a-pull-request).
-
-
 ### Track a Pull Request
 After your pull request is included into a onos-config _project_ you can find it under the `In Progress` tab.  
 At this point in time the PR will go through a lifecycle:

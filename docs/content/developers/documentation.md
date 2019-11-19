@@ -1,4 +1,4 @@
-# How does onos-docs work? 
+# How does onos-docs work?
 *Multi-repo docs* is a process that collects docs from multiple repos and publishes them on a single website. 
 [µONOS](https://github.com/onosproject) project uses the Multi-repo docs process to achieve following design goals:
 
@@ -7,7 +7,7 @@ each subsystem. In addition, [onos-docs](https://github.com/onosproject/onos-doc
 - *Easy to maintain*: Support adding new projects and their docs in the building and publishing process of onos docs with a minimum effort.
 - *Versioning*: Support versioning to build different version of docs based on different releases of ONOS subsystems. 
 
-## ONOS Docs Manager Software:
+## ONOS Docs Manager Software
 onos-docs project uses [Mkdocs] for building the docs website and [Travis] to publish it on web.  
 To automate the workflow and  achieve the above design goals, 
 a software is developed called *onos-docs-manager* that is written in Golang 
@@ -70,9 +70,9 @@ Rules for GitHub markdown are at [https://guides.github.com/features/mastering-m
 
 Rules for MkDocs (Python) are at [https://daringfireball.net/projects/markdown/syntax](https://daringfireball.net/projects/markdown/syntax)
 
-> The rules are mostly the same for both platforms, with the following caveats
->
->   * With the python interpreter there must be a new empty line before any ordered or unordered list
+The rules are mostly the same for both platforms, with the following caveats:
+
+- With the python interpreter there must be a new empty line before any ordered or unordered list
 
 
 [onos-docs]: https://github.com/onosproject/onos-docs
