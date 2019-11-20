@@ -62,7 +62,7 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 
 				err = gitRepo.Clone()
 				utils.CheckIfError(err)
-				err = utils.RemoveContents(path)
+				err = utils.RemoveCode(path)
 				utils.CheckIfError(err)
 			}
 			db.build()
@@ -100,7 +100,7 @@ func (db *DocsBuilderConfig) VersionHandler(config *utils.DocsConfig) {
 
 				err := gitRepo.Clone()
 				utils.CheckIfError(err)
-				err = utils.RemoveContents(path)
+				err = utils.RemoveCode(path)
 				utils.CheckIfError(err)
 			}
 			db.build()

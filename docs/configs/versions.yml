@@ -33,4 +33,7 @@ versions:
         - name: onos-test
           url: https://github.com/onosproject/onos-test
           tagName: v0.1-onfconnect
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName: master
 LatestVersion: "v0.2"

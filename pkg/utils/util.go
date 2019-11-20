@@ -45,8 +45,8 @@ func CheckIfError(err error) {
 	os.Exit(1)
 }
 
-// RemoveContents remove all folders of a given dir except docs folder
-func RemoveContents(dir string) error {
+// RemoveCode remove all folders of a given dir except docs folder
+func RemoveCode(dir string) error {
 	d, err := os.Open(dir)
 	if err != nil {
 		return err

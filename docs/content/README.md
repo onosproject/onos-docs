@@ -1,10 +1,10 @@
-# ONOS
+# Open Network Operating System (ONOS)
 <div style="text-align: justify"> 
 
 **µONOS** is a code-name for the next generation architecture of ONOS - an open-source SDN control and configuration platform.
 The µONOS architecture is:
 
-- Natively based on new generation of control and configuration interfaces and standards, e.g. *P4/P4Runtime*, *gNMI/OpenConfig*, *gNOI*
+- Natively based on new generation of control and configuration interfaces and standards, e.g. **P4/P4Runtime**, **gNMI/OpenConfig**, **gNOI**
 - Provides basis for zero-touch operations support
 - Implemented in systems-level languages - primarily Go, some C/C++ as necessary
 - Modular and based on established and efficient polyglot interface mechanism - gRPC
