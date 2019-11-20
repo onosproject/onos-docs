@@ -48,6 +48,7 @@ func (db *DocsBuilderConfig) build() {
 		utils.RunCommand("cp", "./content/README.md", docsDir)
 		utils.RunCommand("cp", "-r", "./content/images", docsDir)
 		utils.RunCommand("cp", "-r", "./content/developers", docsDir)
+		utils.RunCommand("cp", "-r", "./content/styles", docsDir)
 	}
 
 	manif["docs_dir"] = docsDir

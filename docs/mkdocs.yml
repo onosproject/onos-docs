@@ -9,6 +9,8 @@ extra:
     type: slack
   - link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
     type: youtube
+extra_css:
+- styles/css/extra.css
 markdown_extensions:
 - attr_list
 - codehilite
