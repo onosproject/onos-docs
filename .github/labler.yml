@@ -1,0 +1,20 @@
+# Add 'onos-docs' label to any root file changes
+onos-docs:
+  - ./*
+  
+# Add '@pkg/build' label to any change within the 'build' package
+@pkg/build:
+  - /pkg/build
+
+@pkg/repository
+  - /pkg/repository
+
+@pkg/menu
+  - /pkg/menu
+
+@pkg/types
+  - /pkg/types
+
+
+
+
