@@ -27,7 +27,6 @@ it over the network, both inside and outside the k8s cluster:
 To deploy the Helm chart locally first install [Kind] following the [instructions](https://kind.sigs.k8s.io).  
 [Helm] is also required. On OSX, this Helm can be installed using [Brew]:
 ```bash
-> go get sigs.k8s.io/kind
 > brew install kubernetes-helm
 ```
 
