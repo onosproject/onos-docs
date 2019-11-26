@@ -6,11 +6,13 @@ nav:
   - Developer Workflow: developers/dev_workflow.md
   - Contribution Guidelines: developers/contributing.md
   - GoDoc Pages: developers/godocs.md
+  - Deploy with Helm: developers/deploy_with_helm.md
 - Configuration Subsystem:
   - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
   - How To Build Configuration Subsystem?: onos-config/docs/build.md
   - How To Run Configuration Subsystem?: onos-config/docs/run.md
   - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
+  - How To Deploy with Helm: onos-config/docs/deployment.md
   - Administrative And Diagnostic CLI: onos-config/docs/cli.md
   - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
   - Northbound gNMI Service: onos-config/docs/gnmi.md
@@ -27,12 +29,14 @@ nav:
           - Network Snapshot Types: onos-config/docs/api/types_snapshot_network.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
+  - How To Deploy with Helm: onos-topo/docs/deployment.md
   - APIs:
       - Admin API: onos-topo/docs/api/admin.md
       - Diagnostic API: onos-topo/docs/api/diags.md
       - Device API: onos-topo/docs/api/device.md
 - Command Line Interface Subsystem (CLI):
   - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
+  - How To Deploy with Helm: onos-cli/docs/deployment.md
   - ONOS CLI Commands: onos-cli/docs/cli/onos.md
 - Zero-Touch Provisioning (ZTP) Subsystem:
   - How To Install And Run ZTP?: onos-ztp/docs/setup.md
