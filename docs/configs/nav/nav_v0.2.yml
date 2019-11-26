@@ -36,6 +36,8 @@ nav:
   - ONOS CLI Commands: onos-cli/docs/cli/onos.md
 - Zero-Touch Provisioning (ZTP) Subsystem:
   - How To Install And Run ZTP?: onos-ztp/docs/setup.md
+  - APIs:
+      - Admin API: onos-ztp/docs/api/admin.md
 - Test Tools:
   - How To Install and Run ONIT?: onos-test/docs/setup.md
   - How To Use ONIT?: onos-test/docs/run.md
