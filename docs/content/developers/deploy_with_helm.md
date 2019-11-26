@@ -1,6 +1,6 @@
 # Deploying onos micro-services with HELM
 
-One of the goals of the onos-config project is to provide simple deployment options
+One of the goals of the micro-onos project is to provide simple deployment options
 that integrate with modern technologies. Deployment configurations can be found in
 the `/deployments/helm` folder in every repository that posses the Helm charts. 
 For example see the `onos-config/deplyments/helm` folder.
@@ -24,9 +24,8 @@ it over the network, both inside and outside the k8s cluster:
 
 ### Local Deployment Setup
 
-To deploy the Helm chart locally, install [Kind] and [Helm]. On OSX, this can be done
-using [Brew]:
-
+To deploy the Helm chart locally first install [Kind] following the [instructions](https://kind.sigs.k8s.io).  
+[Helm] is also required. On OSX, this Helm can be installed using [Brew]:
 ```bash
 > go get sigs.k8s.io/kind
 > brew install kubernetes-helm
@@ -80,5 +79,10 @@ default       atomix-controller-b579b9f48-lgvxf            1/1     Running   0  
 
 Once you have exported the `KUBECONFIG` flag you can start deploy `onos` services through helm charts.
 Please refer to each service's `deployment` file to get the exact command for each helm chart.
-An example can be found here:
+Example for [onos-config](https://docs.onosproject.org/onos-config/docs/deployment/).
 
+[Kind]: https://kind.sigs.k8s.io
+[Brew]: https://brew.sh/
+[Helm]: https://helm.sh/
+[Kubernetes]: https://kubernetes.io/
+[ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
