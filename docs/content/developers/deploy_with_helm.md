@@ -50,10 +50,7 @@ Fetch the `atomix-controller.yaml` file:
 ```bash
 curl -o atomix-controller.yaml https://raw.githubusercontent.com/atomix/atomix-k8s-controller/master/deploy/atomix-controller.yaml
 ```
-if you want to deploy the cluster in the non default namespace please edit `atomix-controller.yaml`, replacing `default`
-with your namespace.
-
-To then deploy the atomix controller issue:
+Then deploy the atomix controller issue:
 ```bash
 kubectl create -f atomix-controller.yaml
 ```
@@ -71,8 +68,15 @@ If you watch the `pods` you should now see:
 ```bash
 kubectl get pods --all-namespaces
 
-NAMESPACE     NAME                                         READY   STATUS    RESTARTS   AGE
-default       atomix-controller-b579b9f48-lgvxf            1/1     Running   0          152m
+NAMESPACE         NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system       atomix-controller-b579b9f48-lgvxf            1/1     Running   0          152m
+```
+### Configure the micro-onos namespace
+The various `onos` services can be deployed to any namespace. 
+For consistency between documentation we are going to use the `micro-onos` one.
+To create the `micro-onos` namespace do the following:
+```bash
+kubectl create namespace micro-onos
 ```
 
 ### Deploy services
