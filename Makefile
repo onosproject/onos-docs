@@ -6,7 +6,7 @@ DOCS_MANAGER_TEST_VERSION := latest
 
 .PHONY: all docs docs-serve
 docs: # @HELP Build documentation site
-docs: deps build-docs-manager linters license_check images
+docs: clean deps build-docs-manager linters license_check images
 	make -C ./docs docs
 docs-serve: # @HELP Serve the documentation site localy.
 docs-serve: deps build-docs-manager images
@@ -37,7 +37,7 @@ images: onos-docs-manager-image
 linters: # @HELP examines Go source code and reports coding problems
 	golangci-lint run
 
-license_check: # @HELP examine and ensure license headers exist
+license_check: # @HELP examine and ensure license headers exist        
 	@if [ ! -d "../build-tools" ]; then cd .. && git clone https://github.com/onosproject/build-tools.git; fi
 	./../build-tools/licensing/boilerplate.py -v --rootdir=${CURDIR}
 
