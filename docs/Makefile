@@ -13,10 +13,10 @@ MDL_DIRs := ./content/onos-config ./content/onos-topo ./content/onos-ztp ./conte
 
 
 # Default: generates the documentation into $(SITE_DIR)
-docs: docs-build docs-check
+docs: docs-build 
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
-docs-serve: docs-build docs-check
+docs-serve: docs-build 
 	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
 
 
