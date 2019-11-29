@@ -46,15 +46,11 @@ Once Kind has started, set your  environment to the Kubernetes cluster:
 
 The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
 The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
-Fetch the `atomix-controller.yaml` file:
+To deploy the Atomix controller do:
 ```bash
-curl -o atomix-controller.yaml https://raw.githubusercontent.com/atomix/atomix-k8s-controller/master/deploy/atomix-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/atomix-k8s-controller/master/deploy/atomix-controller.yaml
 ```
-Then deploy the atomix controller issue:
-```bash
-kubectl create -f atomix-controller.yaml
-```
-with the correct return output being 
+The correct return output looks like this: 
 ```bash
 customresourcedefinition.apiextensions.k8s.io/partitionsets.k8s.atomix.io created
 customresourcedefinition.apiextensions.k8s.io/partitions.k8s.atomix.io created
