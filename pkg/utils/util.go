@@ -22,6 +22,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/onosproject/onos-docs/pkg/common"
+
 	log "k8s.io/klog"
 
 	"github.com/pkg/errors"
@@ -90,4 +92,12 @@ func Download(url string) ([]byte, error) {
 	}
 
 	return ioutil.ReadAll(resp.Body)
+}
+
+// CreateDir creates a dir based on a given path
+func CreateDir(path string) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		err := os.MkdirAll(path, common.PermissionMode)
+		CheckIfError(err)
+	}
 }
