@@ -47,9 +47,11 @@ nav:
   - Getting started with ONIT: onos-test/docs/getting-started.md
   - How To Write and Run Tests?: onos-test/docs/testing.md
   - Debugging with ONIT: onos-test/docs/debugging.md
+  - ONIT CLI Commands: onos-test/docs/cli/onit.md
 - Graphical User Interface (GUI):
   - ONOS-GUI Subsystem: onos-gui/docs/README.md
   - Configuration GUI: onos-gui/docs/config-gui.md
   - GUI Architecture: onos-gui/docs/architecture.md
   - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
   - How To Run ONOS GUI?: onos-gui/docs/run.md
+  - How to Deploy with Helm?: onos-gui/docs/deployment.md
