@@ -12,9 +12,8 @@ required to establish such a Fork and to create a Pull Request.
 
 ![Git workflow](../images/contributing_workflow.png)
 
-[!NOTE]
-In the following subsections, we explain the contribution workflow for one of the repositories, namely `onos-config`. The same workflow can be used for all the other repos under [onosproject](https://github.com/onosproject).
-In the following examples just substitute any `onos-config` reference with the name of the repo you are working on, such as `onos-topo` or `simulators`. Any step that do not have `onos-config` in them can be used as is. 
+>In the following subsections, we explain the contribution workflow for one of the repositories, namely `onos-config`. The same workflow can be used for all the other repos under [onosproject](https://github.com/onosproject).
+>In the following examples just substitute any `onos-config` reference with the name of the repo you are working on, such as `onos-topo` or `simulators`. Any step that do not have `onos-config` in them can be used as is. 
   
 ### 1. Fork on GitHub
 
@@ -30,19 +29,19 @@ using the following procedure:
 
 If you have not set and exported the `GOPATH` environment variable, please do so:
 
-```sh
+```bash
 export GOPATH=$(go env GOPATH)
 ```
 
 Similarly, set and export the `GIT_USER` environment variable to match your github profile name:
 
-```sh
+```bash
 export GIT_USER={your github profile name}
 ```
 
 Then, clone your fork of the `onos-config` repository:
 
-```sh
+```bash
 ONOS_ROOT=$GOPATH/src/github.com/onosproject
 mkdir -p $ONOS_ROOT && cd $ONOS_ROOT
 
@@ -64,7 +63,7 @@ git remote -v
 
 Get your local master up to date:
 
-```sh
+```bash
 cd $GOPATH/src/github.com/onosproject/onos-config
 git fetch upstream
 git checkout master
@@ -82,7 +81,7 @@ Then edit code on the `myfeature` branch.
 
 While on your _myfeature_ branch
 
-```sh
+```bash
 git fetch upstream
 git rebase upstream/master
 ```
@@ -97,7 +96,7 @@ and useful (see below). You can also consider changing your `.git/config` file v
 
 Commit your changes.
 
-```sh
+```bash
 git commit
 ```
 
@@ -111,7 +110,7 @@ will be merged with a _squash and commit_ strategy, thus showing as only one com
 When ready to review (or just to establish an offsite backup or your work),
 push your branch to your fork on `github.com`:
 
-```sh
+```bash
 git push origin myfeature
 ```
 
@@ -157,7 +156,7 @@ A nifty way to manage the commits in your PR is to do an [interactive
 rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History),
 which will let you tell git what to do with every commit:
 
-```sh
+```bash
 git fetch upstream
 git rebase -i upstream/master
 ```
@@ -176,7 +175,7 @@ will create the PR branch inside the main repository rather than inside your for
 
 #### 1. Create a branch and sync it with upstream
 
-```sh
+```bash
 # create a branch
 git checkout -b myrevert
 
@@ -189,14 +188,14 @@ git rebase upstream/master
 
 If the commit you wish to revert it a merge commit, run this:
 
-```sh
+```bash
 # SHA is the hash of the merge commit you wish to revert
 git revert -m 1 SHA
 ```
 
 If it is a single commit, then run the following:
 
-```sh
+```bash
 # SHA is the hash of the single commit you wish to revert
 git revert SHA
 ```
@@ -205,7 +204,7 @@ The above will create a new commit reverting the changes.
 
 #### 3. Push this new commit to your remote
 
-```sh
+```bash
 git push ${your_remote_name} myrevert
 ```
 
