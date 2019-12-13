@@ -25,23 +25,26 @@ it over the network, both inside and outside the k8s cluster:
 
 ### Local Deployment Setup
 
-To deploy the Helm chart locally first install [Kind] following the [instructions](https://kind.sigs.k8s.io).  
-[Helm] is also required. On OSX, this Helm can be installed using [Brew]:
-```bash
-> brew install kubernetes-helm
-```
+To deploy the Helm chart locally: 
 
-You will also need Docker to build and deploy an image locally.
-* Docker [installation instructions](https://docs.docker.com/v17.12/install/)
+1. First, you will need Docker to build and deploy an image locally. Install Docker following the 
+[Docker installation instructions](https://docs.docker.com/v17.12/install/).
 
+2. Second, install [Kind] following the [instructions](https://kind.sigs.k8s.io).  
 
-Once Kind has been installed, start it with `kind create cluster`. 
+3. Third, install [Helm]. On OSX, this Helm can be installed using [Brew]:
 
-Once Kind has started, set your  environment to the Kubernetes cluster:
-
-```bash
-> export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
-```
+   ```bash
+   brew install kubernetes-helm
+   ```
+4. Once Kind has been installed, start it with 
+   ```bash
+   kind create cluster. 
+   ```
+5. Once Kind has started, set your environment to the Kubernetes cluster:
+   ```bash
+   export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+   ```
 ### Deploy Atomix Controller
 
 The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
