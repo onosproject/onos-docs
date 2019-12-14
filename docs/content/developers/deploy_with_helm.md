@@ -2,8 +2,8 @@
 
 One of the goals of the micro-onos project is to provide simple deployment options
 that integrate with modern technologies. Deployment configurations can be found in
-the `/deployments/helm` folder in every repository that posses the Helm charts. 
-For example see the `onos-config/deplyments/helm` folder.
+the `onos-helm-charts` [repository](https://github.com/onosproject/onos-helm-charts). Each `onos` service has a directory containing its chart.
+As an example the `onos-config` chart is in `onos-helm-charts/onos-config`. 
 
 ## Deploying on Kubernetes with Helm
 
@@ -82,10 +82,28 @@ To create the `micro-onos` namespace do the following:
 kubectl create namespace micro-onos
 ```
 
-### Deploy services
+### Deploy the whole set of onos service
+Once you have exported the `KUBECONFIG` flag you can start deploy `onos` services through helm charts
+A complete set of onos services can be deployed with just the [`onos` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos). 
+In the root directory of the `onos-helm-chart` repository issue
+```bash
+helm install -n micro-onos onos onos
+```
 
-Once you have exported the `KUBECONFIG` flag you can start deploy `onos` services through helm charts.
-Please refer to each service's `deployment` file to get the exact command for each helm chart.
+this will deploy `onos-config`, `onos-topo`, `onos-cli` and `onos-gui`. 
+
+To delete the deployment issue:
+```bash
+helm delete -n micro-onos onos
+```
+
+If you make changes to one of the charts and want to re-deploy, please first issue
+```bash
+helm dep update onos
+```
+### Deploy single services services
+
+You can also deploy each service by itself. Please refer to each service's `deployment` file to get the exact command for each helm chart.
 Example for [onos-config](https://docs.onosproject.org/onos-config/docs/deployment/).
 
 [Kind]: https://kind.sigs.k8s.io
