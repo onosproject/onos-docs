@@ -87,7 +87,7 @@ Once you have exported the `KUBECONFIG` flag you can start deploy `onos` service
 A complete set of onos services can be deployed with just the [`onos` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos). 
 In the root directory of the `onos-helm-chart` repository issue
 ```bash
-helm install -n micro-onos onos onos
+helm install -n micro-onos onos onos --set onos-config.topoEndpoint=onos-onos-topo:5150
 ```
 
 this will deploy `onos-config`, `onos-topo`, `onos-cli` and `onos-gui`. 
