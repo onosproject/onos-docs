@@ -99,7 +99,7 @@ helm delete -n micro-onos onos
 
 If you make changes to one of the charts and want to re-deploy, please first issue
 ```bash
-helm dep update onos
+helm dependency update onos
 ```
 ### Deploy single services services
 
