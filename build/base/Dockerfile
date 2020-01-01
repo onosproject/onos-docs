@@ -9,3 +9,4 @@ RUN apk --no-cache --no-progress add  py3-pip \
   && pip3 install --user mkdocs-bootswatch==1.0 \
   && pip3 install --user  mkdocs-material==4.0.2 \
   && pip3 install --user  markdown-include==0.5.1 \
+  && pip3 install --user mkdocs-minify-plugin \
