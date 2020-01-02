@@ -17,6 +17,10 @@ markdown_extensions:
 - admonition
 - footnotes
 nav: null
+plugins:
+- search
+- minify:
+    minify_html: true
 repo_name: onosproject
 repo_url: https://github.com/onosproject
 site_author: Open Networking Foundation
