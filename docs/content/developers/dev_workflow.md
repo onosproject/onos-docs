@@ -20,12 +20,12 @@ You can find more information on the full build process in the [building onos-co
 
 ## Submit a Pull Request
 If the build and the test passed, you can commit your code and open a new pull request 
-as described in more detail in the [contributing to onos-config](contributing.md#5-commit) document.
+as described in more detail in the [contributing](contributing.md#5-commit) document.
 
 ## Pull Request Review process
 The pull request you just opened will be checked by our Travis CI system and reviewed by the community. 
 Once it is approved, it will be merged it with a _squash and merge_ strategy. 
 If you are requested for changes in your pull request please go back and start again with [step number 4 
-in the contributing to onos-config guide](contributing.md#4-keep-branch-in-sync).
+in the contributing](contributing.md#4-keep-branch-in-sync).
 
 
