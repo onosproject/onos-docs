@@ -7,6 +7,7 @@ nav:
   - Contribution Guidelines: developers/contributing.md
   - GoDoc Pages: developers/godocs.md
   - Deploy with Helm: developers/deploy_with_helm.md
+  - Deploy with Helm on GCP: developers/deploy_on_gcp.md
 - Configuration Subsystem:
   - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
   - How To Build Configuration Subsystem?: onos-config/docs/build.md
