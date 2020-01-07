@@ -1,13 +1,13 @@
 # Deploying onos micro-services on GCP with HELM
 
-This page provides a set of instructions to deploy micro-onos with HELM on the Google Compute Platform, a.k.a. [GCP](gcp).
+This page provides a set of instructions to deploy micro-onos with HELM on the Google Compute Platform, a.k.a. [GCP].
 
 ## Prerequisites
 
 The following set of instruction assumes:
 
 * Google cloud account is set-up, configured and working. 
-* Google cloud SDK is installed and as per [instructions](Sdk_install).
+* Google cloud SDK is installed and as per [SDK Install] instructions.
 * kubectl CLI tool is installed and working as expected. 
 
 ## Create a project (optional)
@@ -16,7 +16,7 @@ To create and use kubernetes cluster on GCP you'll need to have a GCP project.
 
 > If you already have a project configured that you can use feel free to skip this step.
 
-To create a project google provides a set of [instructions](project_instr) please follow them and name your project as you prefer.
+To create a project google provides a set of [Project instructions] please follow them and name your project as you prefer.
 For consistency this guide will use `micro-onos`
 
 In short:
@@ -124,7 +124,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ## Deploy `micro-onos` with Helm
 
 Now that you have your K8s cluster on GCP ready and working there is no difference as having any other k8s cluster.
-To deploy `micro-onos` you can easily follow the existing [instructions on how to deploy with helm](helm_micro_onos).  
+To deploy `micro-onos` you can easily follow the existing [instructions on how to deploy with helm].  
 
 ## Observe cluster status
 On the GCP user interface the cluster can be seen
@@ -144,7 +144,7 @@ gcloud container clusters delete micro-onos-cluster
 * [K8s with Helm on GCP](https://docs.bitnami.com/kubernetes/get-started-gke/)
 * [Google cloud command line overview](https://cloud.google.com/sdk/gcloud/)
 
-[gcp]: https://cloud.google.com/
-[Sdk_install]: https://cloud.google.com/sdk/install
-[project_instr]: https://cloud.google.com/resource-manager/docs/creating-managing-projects
-[helm_micro_onos]: https://docs.onosproject.org/developers/deploy_with_helm/
+[GCP]: https://cloud.google.com/
+[SDK Install]: https://cloud.google.com/sdk/install
+[Project Instructions]: https://cloud.google.com/resource-manager/docs/creating-managing-projects
+[instructions on how to deploy with helm]: https://docs.onosproject.org/developers/deploy_with_helm/
