@@ -1,10 +1,10 @@
 nav:
 - ONOS: README.md
 - Developers:
-  - Contacts and Calenders: developers/community-info.md
-  - Development Prerequisites: developers/prerequisites.md
-  - Developer Workflow: developers/dev_workflow.md
-  - Contribution Guidelines: developers/contributing.md
+  - Contacts and Calenders: onos-docs/docs/content/developers/community-info.md
+  - Development Prerequisites: onos-docs/docs/content/developers/prerequisites.md
+  - Developer Workflow: onos-docs/docs/content/developers/dev_workflow.md
+  - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
   - GoDoc Pages: developers/godocs.md
   - Deploy with Helm: developers/deploy_with_helm.md
   - Deploy with Helm on GCP: developers/deploy_on_gcp.md
