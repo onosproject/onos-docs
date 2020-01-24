@@ -19,6 +19,9 @@ versions:
         - name: onos-ztp
           url: https://github.com/onosproject/onos-ztp
           tagName:  master
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName:  master
   - ver: 'v0.1-onfconnect'
     repos:
         - name: onos-config

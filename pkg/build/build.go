@@ -47,7 +47,6 @@ func (db *DocsBuilderConfig) build() {
 		siteDir = common.SiteDirName + db.tagName + ""
 		utils.RunCommand("cp", "./content/README.md", docsDir)
 		utils.RunCommand("cp", "-r", "./content/images", docsDir)
-		utils.RunCommand("cp", "-r", "./content/developers", docsDir)
 		utils.RunCommand("cp", "-r", "./content/styles", docsDir)
 	}
 
