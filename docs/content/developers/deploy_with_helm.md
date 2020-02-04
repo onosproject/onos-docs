@@ -55,7 +55,7 @@ The various `onos` services leverage Atomix as the distributed store for HA, sca
 The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
 To deploy the Atomix controller do:
 ```bash
-kubectl create -f https://raw.githubusercontent.com/atomix/atomix-k8s-controller/master/deploy/atomix-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/kubernetes-controller/master/deploy/atomix-controller.yaml
 ```
 The correct return output looks like this: 
 ```bash
