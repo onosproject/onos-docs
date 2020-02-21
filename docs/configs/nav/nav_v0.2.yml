@@ -12,7 +12,6 @@ nav:
   - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
   - How To Build Configuration Subsystem?: onos-config/docs/build.md
   - How To Run Configuration Subsystem?: onos-config/docs/run.md
-  - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
   - How To Deploy with Helm: onos-config/docs/deployment.md
   - Administrative And Diagnostic CLI: onos-config/docs/cli.md
   - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
