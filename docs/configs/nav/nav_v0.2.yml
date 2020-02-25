@@ -56,3 +56,6 @@ nav:
   - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
 - ONOS Library Packages:
     - Logging: onos-lib-go/docs/logging.md
+- TLA+ Conformance Monitoring Tools:
+    - How to Deploy and Run with Helm?: tlaplus-monitor/docs/README.md
+
