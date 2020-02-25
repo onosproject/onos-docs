@@ -25,6 +25,9 @@ versions:
         - name: onos-lib-go
           url: https://github.com/onosproject/onos-lib-go
           tagName: master
+        - name: tlaplus-monitor
+          url: https://github.com/onosproject/tlaplus-monitor
+          tagName: master
   - ver: 'v0.1-onfconnect'
     repos:
         - name: onos-config
