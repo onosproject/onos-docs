@@ -54,8 +54,7 @@ nav:
   - GUI Architecture: onos-gui/docs/architecture.md
   - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
   - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
-- ONOS Library Packages:
+- Logging and Monitoring :
     - Logging: onos-lib-go/docs/logging.md
-- TLA+ Conformance Monitoring Tools:
-    - How to Deploy and Run with Helm?: tlaplus-monitor/docs/README.md
+    - Conformance Monitoring with TLA+: tlaplus-monitor/docs/README.md
 
