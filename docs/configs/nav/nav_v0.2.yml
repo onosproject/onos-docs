@@ -55,6 +55,8 @@ nav:
   - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
   - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
 - Logging and Monitoring :
-    - Logging: onos-lib-go/docs/logging.md
+    - Logging:
+         - Overview of Logging: onos-lib-go/docs/logging/logging.md
+         - Logging API: onos-lib-go/docs/logging/api/logging.md
     - Conformance Monitoring with TLA+: tlaplus-monitor/docs/README.md
 
