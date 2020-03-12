@@ -36,6 +36,7 @@ docs-clean:
 	rm -rf content/onos-*
 	rm -rf content/v*
 	rm -rf content/theme
+	rm -rf content/tla*
 	rm -rf content/experimental
 
 
