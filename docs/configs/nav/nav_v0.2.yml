@@ -51,6 +51,7 @@ nav:
 - Graphical User Interface (GUI):
   - ONOS-GUI Subsystem: onos-gui/docs/README.md
   - Configuration GUI: onos-gui/docs/config-gui.md
+  - SD-RAN GUI: onos-gui/docs/ran-gui.md
   - GUI Architecture: onos-gui/docs/architecture.md
   - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
   - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
