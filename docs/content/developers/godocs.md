@@ -1,8 +1,11 @@
 # Links To GoDoc Pages
 
-- [Configuration Subsystem GoDoc](https://godoc.org/github.com/onosproject/onos-config)
-- [Topology Subsystem GoDoc](https://godoc.org/github.com/onosproject/onos-topo)
-- [Command Line Interface Subsystem GoDoc](https://godoc.org/github.com/onosproject/onos-cli)
-- [Zero-Touch Provisioning Subsystem GoDoc](https://godoc.org/github.com/onosproject/onos-ztp)
-- [Test Tools GoDoc](https://godoc.org/github.com/onosproject/onos-test)
-- [Graphical User Interface GoDoc](https://godoc.org/github.com/onosproject/onos-gui)
+- [Configuration Subsystem GoDoc](https://pkg.go.dev/github.com/onosproject/onos-config)
+- [Topology Subsystem GoDoc](https://pkg.go.dev/github.com/onosproject/onos-topo)
+- [RAN Intelligent Controller GoDoc](https://pkg.go.dev/github.com/onosproject/onos-ric)
+- [RAN Simulator GoDoc](https://pkg.go.dev/github.com/onosproject/ran-simulator)
+- [Command Line Interface Subsystem GoDoc](https://pkg.go.dev/github.com/onosproject/onos-cli)
+- [Zero-Touch Provisioning Subsystem GoDoc](https://pkg.go.dev/github.com/onosproject/onos-ztp)
+- [Common Lib GoDoc](https://pkg.go.dev/github.com/onosproject/onos-lib-go)
+- [Test Tools GoDoc](https://pkg.go.dev/github.com/onosproject/onos-test)
+- [HelmIT Tools GoDoc](https://pkg.go.dev/github.com/onosproject/helmit)

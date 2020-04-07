@@ -9,6 +9,7 @@ DOCKER_RUN_DOC_PORT := 8000
 DOCKER_RUN_DOC_MOUNTS := -v $(CURDIR):/mkdocs 
 DOCKER_RUN_DOC_OPTS := --rm $(DOCKER_RUN_DOC_MOUNTS) -p $(DOCKER_RUN_DOC_PORT):8000
 MDL_DIRs := ./content/onos-config ./content/onos-topo ./content/onos-ztp ./content/onos-gui \
+			./content/onos-ric ./content/ran-simulator \
             ./content/onos-cli/docs/setup.md ./content/developers ./content/onos-test
 
 
@@ -36,6 +37,7 @@ docs-clean:
 	rm -rf content/onos-*
 	rm -rf content/v*
 	rm -rf content/theme
+	rm -rf content/ran*
 	rm -rf content/tla*
 	rm -rf content/experimental
 
