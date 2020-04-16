@@ -16,12 +16,14 @@ package repository
 
 import (
 	utils "github.com/onosproject/onos-docs/pkg/utils"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
 	"gopkg.in/src-d/go-git.v4/storage/memory"
-	log "k8s.io/klog"
 )
+
+var log = logging.GetLogger("repository")
 
 // Repository data structure to represent a repository information
 type Repository struct {

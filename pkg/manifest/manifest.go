@@ -23,9 +23,13 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/onosproject/onos-lib-go/pkg/logging"
+
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
+
+var log = logging.GetLogger("manifest")
 
 const (
 	// FileName file name of the mkdocs manifest file.

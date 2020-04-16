@@ -3,14 +3,17 @@ docs_dir: content
 edit_uri: ""
 extra:
   social:
-  - link: https://github.com/onosproject
-    type: github
-  - link: https://onosproject.slack.com/
-    type: slack
-  - link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
-    type: youtube
+  - icon: fontawesome/brands/github-alt
+    link: https://github.com/onosproject
+  - icon: fontawesome/brands/slack
+    link: https://onosproject.slack.com/
+  - icon: fontawesome/brands/youtube
+    link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
 extra_css:
 - styles/css/extra.css
+- theme/css/onos-menu.css
+extra_javascript:
+- theme/js/onos-menu.js
 markdown_extensions:
 - attr_list
 - codehilite
@@ -18,7 +21,10 @@ markdown_extensions:
 - footnotes
 nav: null
 plugins:
-- search
+- search:
+    lang:
+    - en
+    separator: '[\s\-\.]+'
 - minify:
     minify_html: true
 repo_name: onosproject
@@ -29,11 +35,11 @@ site_name: onosproject
 site_url: ""
 theme:
   custom_dir: theme
-  feature:
-    tabs: false
   i18n:
     next: Next
     prev: Previous
+  icon:
+    repo: fontawesome/brands/git-alt
   include_sidebar: true
   language: en
   logo: images/onos_logo_2017.png

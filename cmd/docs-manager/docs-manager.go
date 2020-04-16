@@ -18,15 +18,20 @@ import (
 	"os"
 
 	"github.com/onosproject/onos-docs/pkg/build"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 
 	utils "github.com/onosproject/onos-docs/pkg/utils"
 )
+
+var log = logging.GetLogger("main")
 
 func main() {
 	config := utils.NewDocsConfig(os.Args[1])
 	err := config.Parse()
 	utils.CheckIfError(err)
 	var db build.DocsBuilderConfig
+
+	log.Info(os.Args)
 	db.VersionHandler(config)
 
 }

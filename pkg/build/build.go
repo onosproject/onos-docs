@@ -17,12 +17,16 @@ package build
 import (
 	"os"
 
+	"github.com/onosproject/onos-lib-go/pkg/logging"
+
 	"github.com/onosproject/onos-docs/pkg/common"
 	"github.com/onosproject/onos-docs/pkg/manifest"
 	"github.com/onosproject/onos-docs/pkg/menu"
 	"github.com/onosproject/onos-docs/pkg/types"
 	utils "github.com/onosproject/onos-docs/pkg/utils"
 )
+
+var log = logging.GetLogger("build")
 
 // DocsBuilderConfig docs builder configuration information
 type DocsBuilderConfig struct {
@@ -33,10 +37,13 @@ type DocsBuilderConfig struct {
 
 // build build docs website according to the given list of versions
 func (db *DocsBuilderConfig) build() {
-	manif, _ := manifest.Read(os.Args[3])
+	manif, err := manifest.Read(os.Args[3])
+	if err != nil {
+		log.Info(err)
+	}
+	log.Info("args in build", os.Args[3])
 	nav, _ := manifest.Read("./configs/nav/nav_" + db.tagName + ".yml")
 	var docsDir string
-
 	manifestPath := common.MkdocsConfigPath
 	var siteDir string
 	if db.tagName == db.latestVersion {
@@ -53,7 +60,7 @@ func (db *DocsBuilderConfig) build() {
 
 	manif["docs_dir"] = docsDir
 	manif["nav"] = nav["nav"]
-	err := manifest.Write(manifestPath, manif)
+	err = manifest.Write(manifestPath, manif)
 	utils.CheckIfError(err)
 	menuConfig := types.MenuFiles{}
 	if os.Args[4] != "" && os.Args[5] != "" {
