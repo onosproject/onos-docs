@@ -35,7 +35,7 @@ images: onos-docs-manager-image
 
 
 publish: # @HELP publish version on github and dockerhub
-	./../build-tools/publish-version ${VERSION} onosproject/onos-docs
+	./../build-tools/publish-version ${VERSION} onosproject/onos-docs-manager
 
 linters: # @HELP examines Go source code and reports coding problems
 	golangci-lint run
