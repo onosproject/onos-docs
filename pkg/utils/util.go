@@ -21,7 +21,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-	"sync"
 
 	"github.com/onosproject/onos-lib-go/pkg/logging"
 
@@ -99,11 +98,16 @@ func Download(url string) ([]byte, error) {
 
 // CreateDir creates a dir based on a given path
 func CreateDir(path string) {
-	var mux sync.Mutex
-	mux.Lock()
+
 	if _, err := os.Stat(path); os.IsNotExist(err) {
-		err := os.MkdirAll(path, common.PermissionMode)
-		CheckIfError(err)
+		for {
+			err := os.MkdirAll(path, common.PermissionMode)
+			log.Info("Path", path)
+			log.Info(err)
+			if err == nil {
+				break
+			}
+		}
+
 	}
-	mux.Unlock()
 }

@@ -28,7 +28,9 @@ var log = logging.GetLogger("main")
 func main() {
 	config := utils.NewDocsConfig(os.Args[1])
 	err := config.Parse()
+	log.Info("main error", err)
 	utils.CheckIfError(err)
+
 	var db build.DocsBuilderConfig
 
 	log.Info(os.Args)

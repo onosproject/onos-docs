@@ -41,7 +41,6 @@ func (db *DocsBuilderConfig) build() {
 	if err != nil {
 		log.Info(err)
 	}
-	log.Info("args in build", os.Args[3])
 	nav, _ := manifest.Read("./configs/nav/nav_" + db.tagName + ".yml")
 	var docsDir string
 	manifestPath := common.MkdocsConfigPath
