@@ -1,6 +1,6 @@
 module github.com/onosproject/onos-docs
 
-go 1.12
+go 1.14
 
 require (
 	github.com/Masterminds/goutils v1.1.0 // indirect
@@ -20,5 +20,5 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v2 v2.2.8
 	gotest.tools v2.2.0+incompatible
-	k8s.io/klog v1.0.0
+	k8s.io/klog v1.0.0 // indirect
 )

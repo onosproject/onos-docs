@@ -11,9 +11,6 @@ extra:
     link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
 extra_css:
 - styles/css/extra.css
-- theme/css/onos-menu.css
-extra_javascript:
-- theme/js/onos-menu.js
 markdown_extensions:
 - attr_list
 - codehilite
@@ -39,7 +36,7 @@ theme:
     next: Next
     prev: Previous
   icon:
-    repo: fontawesome/brands/git-alt
+    repo: fontawesome/brands/github-alt
   include_sidebar: true
   language: en
   logo: images/onos_logo_2017.png

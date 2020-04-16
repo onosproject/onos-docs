@@ -21,10 +21,12 @@ import (
 	"github.com/onosproject/onos-docs/pkg/manifest"
 	"github.com/onosproject/onos-docs/pkg/types"
 	utils "github.com/onosproject/onos-docs/pkg/utils"
-	log "k8s.io/klog"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 
 	"github.com/pkg/errors"
 )
+
+var log = logging.GetLogger("menu")
 
 // Content Content of menu files.
 type Content struct {

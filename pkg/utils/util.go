@@ -21,19 +21,22 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
+
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 
 	"github.com/onosproject/onos-docs/pkg/common"
 
-	log "k8s.io/klog"
-
 	"github.com/pkg/errors"
 )
+
+var log = logging.GetLogger("util")
 
 // CheckArgs should be used to ensure the right command line arguments are
 // passed before executing an example.
 func CheckArgs(arg ...string) {
 	if len(os.Args) < len(arg)+1 {
-		log.Warning("Usage:", os.Args[0], strings.Join(arg, " "))
+		log.Warn("Usage:", os.Args[0], strings.Join(arg, " "))
 		os.Exit(1)
 	}
 }
@@ -96,8 +99,11 @@ func Download(url string) ([]byte, error) {
 
 // CreateDir creates a dir based on a given path
 func CreateDir(path string) {
+	var mux sync.Mutex
+	mux.Lock()
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		err := os.MkdirAll(path, common.PermissionMode)
 		CheckIfError(err)
 	}
+	mux.Unlock()
 }
