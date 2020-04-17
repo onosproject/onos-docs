@@ -102,8 +102,6 @@ func CreateDir(path string) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		for {
 			err := os.MkdirAll(path, common.PermissionMode)
-			log.Info("Path", path)
-			log.Info(err)
 			if err == nil {
 				break
 			}
