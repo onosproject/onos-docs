@@ -21,7 +21,7 @@ docs-serve: docs-build
 	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
-docs-serve-without-image: docs-clean
+docs-serve-without-build-image: docs-clean
 	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
 	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
 

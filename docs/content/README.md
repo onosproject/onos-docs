@@ -1,6 +1,3 @@
-# Open Network Operating System (ONOS)
-<div style="text-align: justify"> 
-
 **µONOS** is a code-name for the next generation architecture of ONOS - an open-source SDN control and configuration platform.
 The µONOS architecture is:
 
@@ -30,4 +27,4 @@ The platform enables comprehensive set of network operations:
 * [µONOS for Developers](https://vimeo.com/360846886)
 * [Device Configuration in µONOS](https://vimeo.com/360886688)
 
-</div>
+
