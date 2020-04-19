@@ -12,6 +12,9 @@ docs-serve: # @HELP Serve the documentation site localy.
 docs-serve: deps build-docs-manager images
 	make -C ./docs docs-serve
 
+docs-serve: # @HELP Serve the documentation site localy.
+docs-serve-without-build-image:
+	make -C ./docs docs-serve-without-build-image
 
 build-docs-manager: # @HELP build docs-manager application
 	go build -o build/_output/docs-manager ./cmd/docs-manager
