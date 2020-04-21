@@ -71,7 +71,7 @@ versions:
           tagName:  v0.6.0
         - name: onos-docs
           url: https://github.com/onosproject/onos-docs
-          tagName:  master
+          tagName:  v0.5.0
         - name: onos-lib-go
           url: https://github.com/onosproject/onos-lib-go
           tagName: v0.6.0

@@ -5,9 +5,9 @@ nav:
   - Development Prerequisites: onos-docs/docs/content/developers/prerequisites.md
   - Developer Workflow: onos-docs/docs/content/developers/dev_workflow.md
   - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
-  - GoDoc Pages: developers/godocs.md
-  - Deploy with Helm: developers/deploy_with_helm.md
-  - Deploy with Helm on GCP: developers/deploy_on_gcp.md
+  - GoDoc Pages: onos-docs/docs/content/developers/godocs.md
+  - Deploy with Helm: onos-docs/docs/content/developers/deploy_with_helm.md
+  - Deploy with Helm on GCP: onos-docs/docs/content/developers/deploy_on_gcp.md
 
 - SD-RAN Subsystem:
   - Near Real Time RAN Intelligent Controller (RIC): onos-ric/docs/README.md
