@@ -63,11 +63,13 @@ To deploy the Helm chart locally:
 * Second, install [Kind] following the [instructions](https://kind.sigs.k8s.io).
 > **Kind v0.7.0 at least** is required, which provides the **K8S API v1.17**
 
-* Third, install [Helm]. On OSX, this Helm can be installed using [Brew]:
+* Third, install [Helm] version 3. On OSX, this Helm can be installed using [Brew]:
 
 ```bash
-brew install kubernetes-helm
+brew install helm
 ```
+> For more information, please refer to [Installing Helm] page.
+
 * Once Kind has been installed, start it with 
 
 ```bash
@@ -233,6 +235,7 @@ raft-controller-6dd86cfd54-nlzzt     1/1     Running   0          2m50s
 [Kind]: https://kind.sigs.k8s.io
 [Brew]: https://brew.sh/
 [Helm]: https://helm.sh/
+[Installing Helm]: https://helm.sh/docs/intro/install/
 [Kubernetes]: https://kubernetes.io/
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [Rancher]: https://rancher.com/quick-start/
