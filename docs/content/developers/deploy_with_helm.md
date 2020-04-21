@@ -53,7 +53,7 @@ it over the network, both inside and outside the k8s cluster:
 
 ## Deployment options
 
-### Local Deployment Setup with KinD
+### Local Deployment Setup with Kind
 
 To deploy the Helm chart locally: 
 
@@ -61,6 +61,7 @@ To deploy the Helm chart locally:
 [Docker installation instructions](https://docs.docker.com/v17.12/install/).
 
 * Second, install [Kind] following the [instructions](https://kind.sigs.k8s.io).
+> **Kind v0.7.0 at least** is required, which provides the **K8S API v1.17**
 
 * Third, install [Helm]. On OSX, this Helm can be installed using [Brew]:
 
@@ -73,10 +74,16 @@ brew install kubernetes-helm
 kind create cluster
 ```
 
-* Once Kind has started, set your environment to the Kubernetes cluster:
-
+* Once Kind has started, export the configuration:
+> This needs to be refreshed if you delete and recreate the Kind cluster
 ```bash
-export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+kind get kubeconfig > ~/.kube/kind
+```
+
+* Once Kind has started, export the new environment to access the Kubernetes cluster:
+> This needs to be run in each terminal window that will access the cluster
+```bash
+export KUBECONFIG=~/.kube/kind
 ```
 
 ### Bare metal deployment
@@ -95,6 +102,16 @@ The Prometheus and Grafana installations are derived from the CORD Helm charts. 
 helm repo add cord https://charts.opencord.org
 ```
 
+### Add the "Atomix" Helm chart repo
+```bash
+helm repo add atomix https://charts.atomix.io
+```
+
+### Update the local cache with charts from these repos:
+```bash
+helm repo update
+```
+
 ### Check out the Helm charts
 The helm charts need to be present on your PC. Run:
 ```bash
@@ -111,23 +128,6 @@ To create the `micro-onos` namespace run:
 kubectl create namespace micro-onos
 ```
 
-### Deploy Atomix Controller
-
-The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
-The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
-To deploy the Atomix controller do:
-
-```bash
-helm install atomix-controller atomix-controller -n micro-onos --set scope=Namespace
-```
-
-If you watch the `pods` you should now see:
-```bash
-$ kubectl -n micro-onos get pods
-NAME                                 READY   STATUS    RESTARTS   AGE
-atomix-controller-6bb9555f48-fk8kb   1/1     Running   0          12s
-```
-
 ## Deploy the SD-RAN set of onos services
 A complete set of onos services can be deployed with just the
 [`sd-ran` chart](https://github.com/onosproject/onos-helm-charts/tree/master/sd-ran). 
@@ -139,9 +139,8 @@ helm dep build sd-ran
 
 Finally, run the install:
 ```bash
-helm -n micro-onos install sd-ran sd-ran . \
-    --set onos-ric.store.controller=atomix-controller.micro-onos.svc.cluster.local:5679 \
-    --set onos-ric.store.raft.backend.image=atomix/local-replica:latest
+helm -n micro-onos install sd-ran sd-ran \
+    --set onos-ric.store.controller=atomix-controller.micro-onos.svc.cluster.local:5679
 ```
 
 this will deploy `onos-ric`, `onos-ric-ho`, `onos-ric-mlb`, `ran-simulator`, `onos-topo`, `onos-cli` and `onos-gui`,
@@ -173,7 +172,7 @@ $ kubectl -n micro-onos exec -it $(kubectl -n micro-onos get pods -l type=cli -o
 * Prometheus at http://<server_IP>:31301/targets
 * Grafana at http://<server_IP>:31300 (admin/strongpassword)
 
-If you are using KinD as a Kubernetes server, you will have to use a "port-forward" to access the GUI, Grafana and Prometheus e.g.
+If you are using Kind as a Kubernetes server, you will have to use a "port-forward" to access the GUI, Grafana and Prometheus e.g.
 $ kubectl -n micro-onos port-forward $(kubectl -n micro-onos get pods -l type=gui -o name) 8182:80
 and then access the GUI at
 * http://localhost:8182
@@ -206,7 +205,30 @@ helm dependency update sd-ran
 ## Deploy single services services
 
 You can also deploy each service by itself. Please refer to each service's `deployment` file to get the exact command for each helm chart.
-Example for [onos-config](https://docs.onosproject.org/onos-config/docs/deployment/).
+Example for [onos-topo](https://docs.onosproject.org/onos-topo/docs/deployment/).
+> For individual services it is necessary to install Atomix first, as below:
+
+### Deploy Atomix Controller
+
+The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
+The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
+To deploy the Atomix controller do:
+
+```bash
+helm -n micro-onos install atomix-controller atomix/kubernetes-controller --set scope=Namespace
+helm -n micro-onos install cache-controller atomix/cache-storage-controller --set scope=Namespace
+helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
+```
+
+If you watch the `pods` you should now see:
+```bash
+$ kubectl -n micro-onos get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+atomix-controller-68dc7d7c79-dxztq   1/1     Running   0          5m35s
+cache-controller-964794d57-zw4cq     1/1     Running   0          4m7s
+raft-controller-6dd86cfd54-nlzzt     1/1     Running   0          2m50s
+```
+
 
 [Kind]: https://kind.sigs.k8s.io
 [Brew]: https://brew.sh/
