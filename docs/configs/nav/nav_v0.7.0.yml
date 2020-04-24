@@ -61,6 +61,14 @@ nav:
   - GUI Architecture: onos-gui/docs/architecture.md
   - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
   - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
+
+- Test Tools:
+    - Getting Started with Helmit: helmit/docs/cli.md
+    - Kubernetes and Helm APIs: helmit/docs/api.md
+    - Testing: helmit/docs/testing.md
+    - Benchmarking: helmit/docs/benchmarking.md
+    - Randomized Simulations: helmit/docs/simulation.md
+
 - Logging and Monitoring :
     - Logging:
          - Overview of Logging: onos-lib-go/docs/logging/logging.md

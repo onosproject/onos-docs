@@ -43,6 +43,7 @@ docs-clean:
 	rm -rf content/theme
 	rm -rf content/ran*
 	rm -rf content/tla*
+	rm -rf content/helmit
 	rm -rf content/experimental
 
 
