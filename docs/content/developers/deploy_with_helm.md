@@ -130,6 +130,27 @@ To create the `micro-onos` namespace run:
 kubectl create namespace micro-onos
 ```
 
+## Deploy Atomix Controller
+
+The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
+The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
+To deploy the Atomix controller do:
+
+```bash
+helm -n micro-onos install atomix-controller atomix/kubernetes-controller --set scope=Namespace
+helm -n micro-onos install cache-controller atomix/cache-storage-controller --set scope=Namespace
+helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
+```
+
+If you watch the `pods` you should now see:
+```bash
+$ kubectl -n micro-onos get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+atomix-controller-68dc7d7c79-dxztq   1/1     Running   0          5m35s
+cache-controller-964794d57-zw4cq     1/1     Running   0          4m7s
+raft-controller-6dd86cfd54-nlzzt     1/1     Running   0          2m50s
+```
+
 ## Deploy the SD-RAN set of onos services
 A complete set of onos services can be deployed with just the
 [`sd-ran` chart](https://github.com/onosproject/onos-helm-charts/tree/master/sd-ran). 
@@ -142,7 +163,7 @@ helm dep build sd-ran
 Finally, run the install:
 ```bash
 helm -n micro-onos install sd-ran sd-ran \
-    --set onos-ric.store.controller=atomix-controller.micro-onos.svc.cluster.local:5679
+    --set global.store.controller=atomix-controller-kubernetes-controller:5679
 ```
 
 this will deploy `onos-ric`, `onos-ric-ho`, `onos-ric-mlb`, `ran-simulator`, `onos-topo`, `onos-cli` and `onos-gui`,
@@ -184,7 +205,7 @@ and then access the GUI at
 Alternatively to install a cluster where you are not interested in SD-RAN and only want onos-config, you could run
 ```bash
 helm -n micro-onos install sd-ran sd-ran \
-     --set onos-ric.store.controller=atomix-controller.micro-onos.svc.cluster.local:5679 \
+      --set global.store.controller=atomix-controller-kubernetes-controller:5679 \
      --set onos-ric.store.raft.backend.image=atomix/local-replica:latest \
      --set import.onos-config.enabled=true \
      --set import.onos-ric.enabled=false \
@@ -210,26 +231,7 @@ You can also deploy each service by itself. Please refer to each service's `depl
 Example for [onos-topo](https://docs.onosproject.org/onos-topo/docs/deployment/).
 > For individual services it is necessary to install Atomix first, as below:
 
-### Deploy Atomix Controller
 
-The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
-The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
-To deploy the Atomix controller do:
-
-```bash
-helm -n micro-onos install atomix-controller atomix/kubernetes-controller --set scope=Namespace
-helm -n micro-onos install cache-controller atomix/cache-storage-controller --set scope=Namespace
-helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
-```
-
-If you watch the `pods` you should now see:
-```bash
-$ kubectl -n micro-onos get pods
-NAME                                 READY   STATUS    RESTARTS   AGE
-atomix-controller-68dc7d7c79-dxztq   1/1     Running   0          5m35s
-cache-controller-964794d57-zw4cq     1/1     Running   0          4m7s
-raft-controller-6dd86cfd54-nlzzt     1/1     Running   0          2m50s
-```
 
 
 [Kind]: https://kind.sigs.k8s.io
