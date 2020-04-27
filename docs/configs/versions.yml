@@ -31,6 +31,9 @@ versions:
         - name: tlaplus-monitor
           url: https://github.com/onosproject/tlaplus-monitor
           tagName: master
+        - name: helmit
+          url: https://github.com/onosproject/helmit
+          tagName: master
 
   - ver: 'v0.1-onfconnect'
     repos:
