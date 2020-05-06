@@ -20,7 +20,7 @@ an overarching (unbrella) Helm chart, or some combination of both.
 In all cases the prerequisites must be satisfied:
 
 * Creation of a namespace
-* deployment of Atomix controller in the namespace.
+* deployment of Atomix controller(s) in the namespace.
 
 The individual components in the [umbrella chart](https://github.com/onosproject/onos-helm-charts/tree/master/sd-ran) are:
 
@@ -166,8 +166,9 @@ helm -n micro-onos install sd-ran onosproject/sd-ran \
 --set global.store.controller=atomix-controller-kubernetes-controller:5679
 ```
 
-this will deploy `onos-ric`, `onos-ric-ho`, `onos-ric-mlb`, `ran-simulator`, `onos-topo`, `onos-cli` and `onos-gui`,
-but not `onos-config` (as it's not currently needed for SD-RAN).
+this will deploy `onos-ric`, `onos-ric-ho`, `onos-ric-mlb`, `ran-simulator`,
+`onos-topo`, `onos-cli`, `onos-gui`, and `onos-config` (but not `onos-classic` as
+it's not needed for SD-RAN - see [Deploying ONOS classic with HELM](./deploy_onos_classic.md)).
 
 To monitor the startup of the pods use `kubectl` like:
 ```bash
