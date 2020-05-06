@@ -28,6 +28,34 @@ Follow the same [Prerequisites](./deploy_with_helm.md#Prerequisites) as in the
 ```bash
 helm -n micro-onos install onos-classic onosproject/onos-classic
 ```
+On kind you can use the following configuration to create a 3 node worker k8s deployment.
+
+```bash
+kind: Cluster
+apiVersion: kind.sigs.k8s.io/v1alpha3
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+  - role: worker
+```
+After saving this configuration in a file, e.g. `cluster.cfg`, you can create the cluster with:
+```bash
+kind create cluster --name onos-classic --config cluster.cfg
+```
+
+### Disable Atmoix persistent volumes for clean state after restart
+Atomix comes with the capability to save data to persistent volumes to preserve it across re-starts of the containers.
+For easiness of development lifecycle and to achieve a clean slate every time such feature needs to be disabled.
+It's disabled by passing `--set atomix.persistence.enabled=false`
+So the resulting command will be
+```bash
+helm -n micro-onos install onos-classic onosproject/onos-classic --set atomix.persistence.enabled=false
+```
+You can verify that no persistent volumes are present with
+```bash
+kubectl -n micro-onos get pvc
+```
 
 ### Deploy on a single node Kind installation
 This is the simplest possible deployment with a local Atomix installation and
