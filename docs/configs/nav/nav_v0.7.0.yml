@@ -7,6 +7,7 @@ nav:
   - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
   - GoDoc Pages: onos-docs/docs/content/developers/godocs.md
   - Deploy with Helm: onos-docs/docs/content/developers/deploy_with_helm.md
+  - Deploy ONOS classic: onos-docs/docs/content/developers/deploy_onos_classic.md
   - Deploy with Helm on GCP: onos-docs/docs/content/developers/deploy_on_gcp.md
 
 - SD-RAN Subsystem:
