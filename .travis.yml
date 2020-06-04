@@ -5,7 +5,6 @@ language: go
 go:
   - '1.14.x'
 
-
 notifications:
   email: false
 
@@ -23,6 +22,13 @@ env:
 
 before_script:
   - curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin latest
+  - pushd .. && git clone https://github.com/onosproject/build-tools.git && popd
+
+before_install:
+  - 'if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]] ; then
+       openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in .ssh/id_rsa.enc -out ~/.ssh/id_rsa -d &&
+       chmod 600 ~/.ssh/id_rsa;
+     fi'
 
 cache:
   directories:
@@ -34,7 +40,10 @@ jobs:
     - stage: build
       script:
         - make docs
-        - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/bin/push-images; fi'
+        - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+             bash ./build/bin/push-images &&
+             bash -x ../build-tools/release-merge-commit;
+           fi'
       deploy:
         - provider: pages
           edge: false
