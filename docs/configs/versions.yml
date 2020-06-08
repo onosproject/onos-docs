@@ -22,12 +22,12 @@ versions:
         - name: onos-lib-go
           url: https://github.com/onosproject/onos-lib-go
           tagName: master
-        - name: onos-ric
-          url: https://github.com/onosproject/onos-ric
-          tagName: master
-        - name: ran-simulator
-          url: https://github.com/onosproject/ran-simulator
-          tagName: master
+        #- name: onos-ric
+        #  url: https://github.com/onosproject/onos-ric
+        #  tagName: master
+        #- name: ran-simulator
+        #  url: https://github.com/onosproject/ran-simulator
+        #  tagName: master
         - name: tlaplus-monitor
           url: https://github.com/onosproject/tlaplus-monitor
           tagName: master
@@ -78,12 +78,12 @@ versions:
         - name: onos-lib-go
           url: https://github.com/onosproject/onos-lib-go
           tagName: v0.6.0
-        - name: onos-ric
-          url: https://github.com/onosproject/onos-ric
-          tagName: v0.6.0
-        - name: ran-simulator
-          url: https://github.com/onosproject/ran-simulator
-          tagName: v0.6.0
+        #- name: onos-ric
+        #  url: https://github.com/onosproject/onos-ric
+        #  tagName: v0.6.0
+        #- name: ran-simulator
+        #  url: https://github.com/onosproject/ran-simulator
+        #  tagName: v0.6.0
         - name: tlaplus-monitor
           url: https://github.com/onosproject/tlaplus-monitor
           tagName: master
