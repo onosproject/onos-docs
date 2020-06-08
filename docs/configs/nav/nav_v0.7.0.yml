@@ -10,16 +10,16 @@ nav:
   - Deploy ONOS classic: onos-docs/docs/content/developers/deploy_onos_classic.md
   - Deploy with Helm on GCP: onos-docs/docs/content/developers/deploy_on_gcp.md
 
-- SD-RAN Subsystem:
-  - Near Real Time RAN Intelligent Controller (RIC): onos-ric/docs/README.md
-  - RIC Handover Application: onos-ric/docs/handover.md
-  - RIC Load Balancing Application: onos-ric/docs/loadbalancer.md
-  - Ran Simulator: ran-simulator/docs/README.md
-  - APIs:
-      - C1 Interface: onos-ric/docs/api/c1-interface.md
-      - E2 Interface: onos-ric/docs/api/e2-interface.md
-      - E2 SM: onos-ric/docs/api/e2sm.md
-      - E2 AP: onos-ric/docs/api/e2ap.md
+#- SD-RAN Subsystem:
+#  - Near Real Time RAN Intelligent Controller (RIC): onos-ric/docs/README.md
+#  - RIC Handover Application: onos-ric/docs/handover.md
+#  - RIC Load Balancing Application: onos-ric/docs/loadbalancer.md
+#  - Ran Simulator: ran-simulator/docs/README.md
+#  - APIs:
+#      - C1 Interface: onos-ric/docs/api/c1-interface.md
+#      - E2 Interface: onos-ric/docs/api/e2-interface.md
+#      - E2 SM: onos-ric/docs/api/e2sm.md
+#      - E2 AP: onos-ric/docs/api/e2ap.md
 
 - Configuration Subsystem:
   - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
