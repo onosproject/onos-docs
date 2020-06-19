@@ -28,11 +28,6 @@ The individual components in the [umbrella chart](https://github.com/onosproject
 *   onos-config:
 *   onos-cli:
 *   onos-gui:
-*   onos-ric:
-*   onos-ric-ho:
-*   onos-ric-mlb:
-*   ran-simulator:
-*   nem-monitoring:
 
 > The choice of which of these is deployed can be chosen at deployment time with an option like:
 >
@@ -110,7 +105,7 @@ helm repo add atomix https://charts.atomix.io
 
 ### Add the "onosproject" Helm chart repo
 ```bash
-helm repo add onos https://charts.onosproject.org
+helm repo add onosproject https://charts.onosproject.org
 ```
 
 ### Update the local cache with charts from these repos:
@@ -143,7 +138,6 @@ To deploy the Atomix controller do:
 
 ```bash
 helm -n micro-onos install atomix-controller atomix/kubernetes-controller --set scope=Namespace
-helm -n micro-onos install cache-controller atomix/cache-storage-controller --set scope=Namespace
 helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
 ```
 
@@ -152,23 +146,21 @@ If you watch the `pods` you should now see:
 $ kubectl -n micro-onos get pods
 NAME                                                         READY   STATUS    RESTARTS   AGE
 atomix-controller-kubernetes-controller-66965c74b-v6d9m      1/1     Running   0          18m
-cache-controller-cache-storage-controller-5666d67c4d-kv2hh   1/1     Running   0          30s
 raft-controller-raft-storage-controller-78c7999cf5-zwn8b     1/1     Running   0          99s
 ```
 
-## Deploy the SD-RAN set of onos services
-A complete set of onos services can be deployed with just the over-arching (umbrella)
-[`sd-ran` chart](https://github.com/onosproject/onos-helm-charts/tree/master/sd-ran). 
+## Deploy the µONOS services
+A complete set of µONOS services can be deployed with just the over-arching
+[`onos-umbrella` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos-umbrella). 
 
 Run the install:
 ```bash
-helm -n micro-onos install sd-ran onosproject/sd-ran \
+helm -n micro-onos install onos-umbrella onosproject/onos-umbrella \
 --set global.store.controller=atomix-controller-kubernetes-controller:5679
 ```
 
-this will deploy `onos-ric`, `onos-ric-ho`, `onos-ric-mlb`, `ran-simulator`,
-`onos-topo`, `onos-cli`, `onos-gui`, and `onos-config` (but not `onos-classic` as
-it's not needed for SD-RAN - see [Deploying ONOS classic with HELM](./deploy_onos_classic.md)).
+this will deploy `onos-topo`, `onos-cli`, `onos-gui`, and `onos-config` (but not `onos-classic` as
+it's not needed for µONOS - see [Deploying ONOS classic with HELM](./deploy_onos_classic.md)).
 
 To monitor the startup of the pods use `kubectl` like:
 ```bash
@@ -178,38 +170,16 @@ kubectl -n micro-onos get pods -w
 giving a list like:
 ```
 NAME                                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-kubernetes-controller-66965c74b-v6d9m      1/1     Running   0          28m
-cache-controller-cache-storage-controller-5666d67c4d-kv2hh   1/1     Running   0          10m
-onos-cache-1-57484c95df-th9tg                                1/1     Running   0          6m25s
-onos-cli-677dcfccb9-tn8jh                                    1/1     Running   0          6m26s
-onos-consensus-1-0                                           1/1     Running   0          6m26s
-onos-gui-6f498dcdd4-jbnvq                                    2/2     Running   0          6m26s
-onos-ric-bcc5f9668-6844p                                     1/1     Running   1          6m26s
-onos-ric-ho-8566597f4b-8vl7v                                 1/1     Running   0          6m26s
-onos-ric-mlb-64d6ccd64-ppb2m                                 1/1     Running   0          6m25s
-onos-topo-545497b866-ccpvf                                   1/1     Running   1          6m26s
-raft-controller-raft-storage-controller-78c7999cf5-zwn8b     1/1     Running   0          12m
-ran-simulator-647d587c6f-vgwzr                               1/1     Running   0          6m26s
-sd-ran-grafana-7dfdb45bc5-xm9xf                              2/2     Running   0          6m26s
-sd-ran-prometheus-alertmanager-dcc498556-p29pp               2/2     Running   0          6m26s
-sd-ran-prometheus-kube-state-metrics-5566cb77b6-5snnb        1/1     Running   0          6m26s
-sd-ran-prometheus-node-exporter-pz77d                        1/1     Running   0          6m26s
-sd-ran-prometheus-pushgateway-d468f4798-mj9lv                1/1     Running   0          6m26s
-sd-ran-prometheus-server-75f99b45f8-g27rs                    2/2     Running   0          6m26s
+atomix-controller-kubernetes-controller-668c879c5c-6nn29     1/1     Running   0          18m
+cache-controller-cache-storage-controller-6b6945678c-tj9w8   1/1     Running   0          18m
+onos-cache-1-6d8bc859d6-wgp2v                                1/1     Running   0          3m59s
+onos-cli-b6dc469c5-np5p9                                     1/1     Running   0          4m
+onos-config-864d54477c-rqgng                                 5/5     Running   0          4m
+onos-consensus-1-0                                           1/1     Running   0          3m54s
+onos-gui-6fc65856f9-7jj7j                                    2/2     Running   0          4m
+onos-topo-b9cfd7fc6-7k2ss                                    1/1     Running   0          4m
+raft-controller-raft-storage-controller-5d5f76d77f-bfk9x     1/1     Running   0          18m
 ``` 
-
-## Deploy only **onos-config** and related services
-**Alternatively** to install a cluster where you are not interested in SD-RAN and only want onos-config, you could run
-```bash
-helm -n micro-onos install sd-ran onosproject/sd-ran \
-     --set global.store.controller=atomix-controller-kubernetes-controller:5679 \
-     --set import.onos-config.enabled=true \
-     --set import.onos-ric.enabled=false \
-     --set import.onos-ric-ho.enabled=false \
-     --set import.onos-ric-mlb.enabled=false \
-     --set import.ran-simulator.enabled=false \
-     --set import.nem-monitoring.enabled=false
-```
 
 ### Maintenance
 To see the list of installed charts:
@@ -218,16 +188,16 @@ helm -n micro-onos ls
 ```
 
 ```
-NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                         	APP VERSION  
-atomix-controller	micro-onos	1       	2020-04-27 08:34:11.571681508 +0100 IST	deployed	kubernetes-controller-0.4.2   	v0.3.0-beta.1
-cache-controller 	micro-onos	1       	2020-04-27 08:52:14.329737405 +0100 IST	deployed	cache-storage-controller-0.3.2	v0.2.0       
-raft-controller  	micro-onos	1       	2020-04-27 08:51:05.369054085 +0100 IST	deployed	raft-storage-controller-0.3.2 	v0.2.0       
-sd-ran           	micro-onos	1       	2020-04-27 08:56:38.538404922 +0100 IST	deployed	sd-ran-0.0.2                  	v0.6.0
+NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                         	APP VERSION
+atomix-controller	micro-onos	1       	2020-06-19 08:31:20.682993419 +0100 IST	deployed	kubernetes-controller-0.5.1   	v0.4.1     
+cache-controller 	micro-onos	1       	2020-06-19 08:31:24.847087234 +0100 IST	deployed	cache-storage-controller-0.4.0	v0.3.0     
+onos-umbrella    	micro-onos	1       	2020-06-19 08:46:19.159422259 +0100 IST	deployed	onos-umbrella-0.0.11          	v0.6.6     
+raft-controller  	micro-onos	1       	2020-06-19 08:31:28.915432859 +0100 IST	deployed	raft-storage-controller-0.4.0 	v0.3.0
 ```
 
 To delete the deployment issue:
 ```bash
-helm delete -n micro-onos sd-ran
+helm delete -n micro-onos onos-umbrella
 ```
 
 ## Deploy single services services
@@ -251,14 +221,14 @@ git clone https://github.com/onosproject/onos-helm-charts && cd onos-helm-charts
 ```
 
 ### Over-arching (umbrella) chart 
-Run the build of dependent charts to use the local `sd-ran` over-arching chart:
+Run the build of dependent charts to use the local `onos-umbrella` over-arching chart:
 ```bash
-helm dep build sd-ran
+helm dep build onos-umbrella
 ```
 
 If you make changes to one of the charts and want to re-deploy, please first issue:
 ```bash
-helm dependency update sd-ran
+helm dependency update onos-umbrella
 ```
 
 ### Individual charts
