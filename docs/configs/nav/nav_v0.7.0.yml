@@ -1,7 +1,7 @@
 nav:
 - ONOS: README.md
 - Developers:
-  - Contacts and Calenders: onos-docs/docs/content/developers/community-info.md
+  - Contacts and Calendars: onos-docs/docs/content/developers/community-info.md
   - Development Prerequisites: onos-docs/docs/content/developers/prerequisites.md
   - Developer Workflow: onos-docs/docs/content/developers/dev_workflow.md
   - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
