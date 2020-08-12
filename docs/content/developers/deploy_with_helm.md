@@ -116,7 +116,7 @@ helm repo update
 ### Inspect the chart versions and app versions
 To see the list of the latest chart versions and app versions, use the "search" command.
 ```bash
-helm search repo onosproject
+helm search repo onos
 ```
 
 
@@ -137,7 +137,7 @@ The first thing that needs to be deployed in any `onos` deployment is the Atomix
 To deploy the Atomix controller do:
 
 ```bash
-helm -n micro-onos install atomix-controller atomix/kubernetes-controller --set scope=Namespace
+helm -n micro-onos install atomix-controller atomix/atomix-controller --set scope=Namespace
 helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
 ```
 
@@ -145,7 +145,7 @@ If you watch the `pods` you should now see:
 ```bash
 $ kubectl -n micro-onos get pods
 NAME                                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-kubernetes-controller-66965c74b-v6d9m      1/1     Running   0          18m
+atomix-controller-66965c74b-v6d9m                            1/1     Running   0          18m
 raft-controller-raft-storage-controller-78c7999cf5-zwn8b     1/1     Running   0          99s
 ```
 
@@ -155,8 +155,7 @@ A complete set of µONOS services can be deployed with just the over-arching
 
 Run the install:
 ```bash
-helm -n micro-onos install onos-umbrella onosproject/onos-umbrella \
---set global.store.controller=atomix-controller-kubernetes-controller:5679
+helm -n micro-onos install onos-umbrella onosproject/onos-umbrella
 ```
 
 this will deploy `onos-topo`, `onos-cli`, `onos-gui`, and `onos-config` (but not `onos-classic` as
@@ -170,12 +169,10 @@ kubectl -n micro-onos get pods -w
 giving a list like:
 ```
 NAME                                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-kubernetes-controller-668c879c5c-6nn29     1/1     Running   0          18m
-cache-controller-cache-storage-controller-6b6945678c-tj9w8   1/1     Running   0          18m
-onos-cache-1-6d8bc859d6-wgp2v                                1/1     Running   0          3m59s
+atomix-controller-668c879c5c-6nn29                           1/1     Running   0          18m
 onos-cli-b6dc469c5-np5p9                                     1/1     Running   0          4m
 onos-config-864d54477c-rqgng                                 5/5     Running   0          4m
-onos-consensus-1-0                                           1/1     Running   0          3m54s
+onos-config-db-1-0                                           1/1     Running   0          12m
 onos-gui-6fc65856f9-7jj7j                                    2/2     Running   0          4m
 onos-topo-b9cfd7fc6-7k2ss                                    1/1     Running   0          4m
 raft-controller-raft-storage-controller-5d5f76d77f-bfk9x     1/1     Running   0          18m
@@ -189,10 +186,9 @@ helm -n micro-onos ls
 
 ```
 NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                         	APP VERSION
-atomix-controller	micro-onos	1       	2020-06-19 08:31:20.682993419 +0100 IST	deployed	kubernetes-controller-0.5.1   	v0.4.1     
-cache-controller 	micro-onos	1       	2020-06-19 08:31:24.847087234 +0100 IST	deployed	cache-storage-controller-0.4.0	v0.3.0     
-onos-umbrella    	micro-onos	1       	2020-06-19 08:46:19.159422259 +0100 IST	deployed	onos-umbrella-0.0.11          	v0.6.6     
-raft-controller  	micro-onos	1       	2020-06-19 08:31:28.915432859 +0100 IST	deployed	raft-storage-controller-0.4.0 	v0.3.0
+atomix-controller	micro-onos	1       	2020-08-12 15:45:51.528176467 +0100 IST	deployed	atomix-controller-0.5.1      	v0.4.1     
+onos-umbrella    	micro-onos	1       	2020-08-12 16:12:40.010583704 +0100 IST	deployed	onos-umbrella-0.0.11         	v0.6.4     
+raft-controller  	micro-onos	1       	2020-08-12 15:46:18.468695556 +0100 IST	deployed	raft-storage-controller-0.4.0	v0.3.0
 ```
 
 To delete the deployment issue:
@@ -205,14 +201,24 @@ helm delete -n micro-onos onos-umbrella
 Example for [onos-topo](https://docs.onosproject.org/onos-topo/docs/deployment/).
 
 ```bash
-helm -n micro-onos install onos-topo onosproject/onos-topo \
---set store.controller=atomix-controller-kubernetes-controller:5679
+helm -n micro-onos install onos-topo onosproject/onos-topo
 ```
 
 > For individual services it is necessary to install Atomix first, as above:
 
 ## Developer workflow
-Developers may want to run and deploy charts that have not yet been released.
+Developers may want to run and deploy charts that have not yet been released. This
+must be done from the checked out charts folder
+
+> To use the latest version of an application without having to update the chart,
+> an override like `--set image.tag=latest` can be used when individual charts.
+> Alternatively when deploying the umbrella chart the override like
+> `--set onos-topo.image.tag=latest`. The individual applications can be updated
+> in to `kind` with the command `make kind`.
+
+> Note that the source of the charts like `onosproject/onos-topo` will use the
+> chart from the helm repository (cached locally), where as a source like `./onos-topo`
+> will load the chart from the local folder. This is useful when editing charts.
 
 ### Check out the Helm charts
 The helm charts need to be present on your PC. Run:
@@ -223,7 +229,7 @@ git clone https://github.com/onosproject/onos-helm-charts && cd onos-helm-charts
 ### Over-arching (umbrella) chart 
 Run the build of dependent charts to use the local `onos-umbrella` over-arching chart:
 ```bash
-helm dep build onos-umbrella
+make clean && make deps
 ```
 
 If you make changes to one of the charts and want to re-deploy, please first issue:
@@ -231,10 +237,10 @@ If you make changes to one of the charts and want to re-deploy, please first iss
 helm dependency update onos-umbrella
 ```
 
-### Individual charts
+### Individual local charts
 To deploy charts individually (from the `onos-helm-charts` directory) for example:
 ```bash
-helm -n micro-onos install onos-topo onos-topo --set store.controller=atomix-controller-kubernetes-controller:5679
+helm -n micro-onos install onos-topo ./onos-topo
 ```
 
 [Docker]: https://docs.docker.com/get-docker/
