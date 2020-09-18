@@ -38,10 +38,9 @@ cache:
 jobs:
   include:
     - stage: build
-      if: fork == false
       script:
         - make docs
-        - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+        - 'if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $TRAVIS_SECURE_ENV_VARS == "true" ]] ; then
              bash ./build/bin/push-images &&
              bash ../build-tools/release-merge-commit;
            fi'
