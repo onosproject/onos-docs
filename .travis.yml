@@ -38,6 +38,7 @@ cache:
 jobs:
   include:
     - stage: build
+      if: type == pull_request || fork == false
       script:
         - make docs
         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
