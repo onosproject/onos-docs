@@ -134,8 +134,14 @@ kubectl create namespace micro-onos
 
 The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
 The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
-To deploy the Atomix controller do:
+To ensure the controllers are deployed in the correct place with the proper configuration, you can use the deployment manifests rather than the Helm charts:
+```bash
+kubectl create -f https://raw.githubusercontent.com/atomix/kubernetes-controller/master/deploy/atomix-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/raft-storage-controller/master/deploy/raft-storage-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/cache-storage-controller/master/deploy/cache-storage-controller.yaml
+```
 
+To deploy the Atomix controller do:
 ```bash
 helm -n micro-onos install atomix-controller atomix/atomix-controller --set scope=Namespace
 helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
