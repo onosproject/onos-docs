@@ -55,7 +55,7 @@ To deploy the Helm chart locally:
 * First, you will need to install [Docker] to build and deploy an image locally.
 
 * Second, install [Kind].
-> **Kind v0.7.0 at least** is required, which provides the **K8S API v1.17**
+> **Kind v0.9.0 at least** is required, which provides the **K8S API v1.17**
 
 * Third, install [Helm] version 3. On OSX, this Helm can be installed using [Brew]:
 
@@ -141,20 +141,6 @@ kubectl create -f https://raw.githubusercontent.com/atomix/raft-storage-controll
 kubectl create -f https://raw.githubusercontent.com/atomix/cache-storage-controller/master/deploy/cache-storage-controller.yaml
 ```
 
-To deploy the Atomix controller do:
-```bash
-helm -n micro-onos install atomix-controller atomix/atomix-controller --set scope=Namespace
-helm -n micro-onos install raft-controller atomix/raft-storage-controller --set scope=Namespace
-```
-
-If you watch the `pods` you should now see:
-```bash
-$ kubectl -n micro-onos get pods
-NAME                                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-66965c74b-v6d9m                            1/1     Running   0          18m
-raft-controller-raft-storage-controller-78c7999cf5-zwn8b     1/1     Running   0          99s
-```
-
 ## Deploy the µONOS services
 A complete set of µONOS services can be deployed with just the over-arching
 [`onos-umbrella` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos-umbrella). 
@@ -175,13 +161,11 @@ kubectl -n micro-onos get pods -w
 giving a list like:
 ```
 NAME                                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-668c879c5c-6nn29                           1/1     Running   0          18m
 onos-cli-b6dc469c5-np5p9                                     1/1     Running   0          4m
 onos-config-864d54477c-rqgng                                 5/5     Running   0          4m
-onos-config-db-1-0                                           1/1     Running   0          12m
+onos-consensus-1-0                                           1/1     Running   0          12m
 onos-gui-6fc65856f9-7jj7j                                    2/2     Running   0          4m
 onos-topo-b9cfd7fc6-7k2ss                                    1/1     Running   0          4m
-raft-controller-raft-storage-controller-5d5f76d77f-bfk9x     1/1     Running   0          18m
 ``` 
 
 ### Maintenance
@@ -192,9 +176,7 @@ helm -n micro-onos ls
 
 ```
 NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                         	APP VERSION
-atomix-controller	micro-onos	1       	2020-08-12 15:45:51.528176467 +0100 IST	deployed	atomix-controller-0.5.1      	v0.4.1     
 onos-umbrella    	micro-onos	1       	2020-08-12 16:12:40.010583704 +0100 IST	deployed	onos-umbrella-0.0.11         	v0.6.4     
-raft-controller  	micro-onos	1       	2020-08-12 15:46:18.468695556 +0100 IST	deployed	raft-storage-controller-0.4.0	v0.3.0
 ```
 
 To delete the deployment issue:
