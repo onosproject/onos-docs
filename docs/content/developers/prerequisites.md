@@ -2,6 +2,46 @@
 This document provides an overview of the tools and packages needed to work on and to build onos-config.
 Developers are expected to have these tools installed on the machine where the project is built.
 
+## Git tools
+Git needs to be installed as the project is versioned on GitHub.
+
+Set your username: 
+```bash
+git config --global user.name "FIRST_NAME LAST_NAME"
+```
+Set your email address: 
+```bash
+git config --global user.email "MY_NAME@example.com"
+```
+
+An SSH key is necessary to work with Github through the SSH protocol.
+
+If you do not already have on in youe local `~/.ssh` folder then generate an SSH key with:
+```bash
+ssh-keygen -t ecdsa
+```
+> It is easiest to leave the passphrase blank.
+
+Once created the public part of this file can be viewed with:
+```bash
+cat ~/.ssh/id_ecdsa.pub
+```
+
+The contents of this should be copied over to Github as a new key in **SSH and GPG keys**
+
+https://github.com/settings/keys
+
+### Dealing with private Go repos in Github
+For private Go repos in Github, the default access protocol is HTTPS. It is necessary
+to add the following text to your `~/.gitconfig` file to change this to SSH:
+```
+[url "ssh://git@github.com/"]
+insteadOf = https://github.com/
+```
+
+See https://golang.org/doc/faq#git_https for more details
+
+
 ## Go Tools
 Since the project is authored mainly in the Go programming language, the project requires [Go tools] 
 in order to build and execute the code.
