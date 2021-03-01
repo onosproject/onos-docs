@@ -18,12 +18,12 @@ docs: docs-build
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
 docs-serve: docs-build 
-	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
+	docker run  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
 
 # Writer Mode: build and serve docs on http://localhost:8000 with livereload
 docs-serve-without-build-image: docs-clean
-	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
-	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
+	docker run  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
+	docker run  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) /bin/sh -c "cd "site" && python3 -m http.server 8000"
 
 # Build onos-docs related images
 docs-image:
@@ -33,7 +33,7 @@ docs-check:
 	docker run --rm -v $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) mdl $(MDL_DIRs) -s md.style.rb
 
 docs-build: docs-clean docs-image
-	docker run -it  $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
+	docker run $(DOCKER_RUN_DOC_OPTS) $(ONOS_DOCS_BUILD_IMAGE) docs-manager ./configs/versions.yml ./content/ ./mkdocs.yml ./configs/menu/onos-menu.js.gotmpl ./configs/menu/onos-menu.css
 
 docs-clean:
 	rm -rf $(SITE_DIR) 
