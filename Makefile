@@ -38,7 +38,7 @@ images: onos-docs-manager-image
 publish: # @HELP publish version on github and dockerhub
 	./../build-tools/publish-version ${VERSION} onosproject/onos-docs-manager
 
-jenkins-test: build-tools # @HELP run the unit tests and source code validation producing a junit style report for Jenkins
+jenkins-test: build-tools jenkins-tools # @HELP run the unit tests and source code validation producing a junit style report for Jenkins
 jenkins-test: deps build-docs-manager linters license_check images
 	TEST_PACKAGES=NONE ./../build-tools/build/jenkins/make-unit
 
