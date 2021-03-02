@@ -20,15 +20,9 @@ docs-serve-without-build-image:
 build-docs-manager: # @HELP build docs-manager application
 	go build -o build/_output/docs-manager ./cmd/docs-manager
 
-onos-docs-base-image:
-	docker build . -f build/base/Dockerfile \
-        		--build-arg DOCS_MANAGER_BUILD_VERSION=${DOCS_MANAGER_BUILD_VERSION} \
-        		-t onosproject/onos-docs-base:${DOCS_MANAGER_TEST_VERSION}
-
 onos-docs-manager-image:
 	@go mod vendor
 	docker build . -f build/docs-manager/Dockerfile \
-    		--build-arg DOCS_MANAGER_BUILD_VERSION=${DOCS_MANAGER_BUILD_VERSION} \
     		-t onosproject/onos-docs-manager:${DOCS_MANAGER_TEST_VERSION}
 	@rm -rf vendor
 
