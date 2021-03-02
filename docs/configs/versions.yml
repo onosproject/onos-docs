@@ -13,9 +13,9 @@ versions:
         - name: onos-cli
           url: https://github.com/onosproject/onos-cli
           tagName:  master
-        - name: onos-ztp
-          url: https://github.com/onosproject/onos-ztp
-          tagName:  master
+        #- name: onos-ztp
+        #  url: https://github.com/onosproject/onos-ztp
+        #  tagName:  master
         - name: onos-docs
           url: https://github.com/onosproject/onos-docs
           tagName:  master
