@@ -15,3 +15,9 @@ docs/content/ran*
 docs/content/theme
 docs/content/helmit
 docs/content/experimental
+
+# Jenkins report files
+*report*.xml
+*coverage*.xml
+*-output.out
+
