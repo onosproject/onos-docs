@@ -4,7 +4,7 @@ One of the goals of the µONOS project is to provide simple deployment options
 that integrate with modern technologies. Deployment configurations can be found in
 the `onos-helm-charts` [repository](https://github.com/onosproject/onos-helm-charts).
 Each `onos` service has a directory containing its chart.
-As an example the `onos-config` chart is in `onos-helm-charts/onos-config`. 
+As an example the `onos-config` chart is in `onos-helm-charts/onos-config`.
 
 ## Deploying on Kubernetes with Helm
 
@@ -50,7 +50,7 @@ it over the network, both inside and outside the k8s cluster:
 
 ### Local Deployment Setup with Kind
 
-To deploy the Helm chart locally: 
+To deploy the Helm chart locally:
 
 * First, you will need to install [Docker] to build and deploy an image locally.
 
@@ -64,7 +64,7 @@ brew install helm
 ```
 > For more information, please refer to [Installing Helm] page.
 
-* Once Kind has been installed, start it with 
+* Once Kind has been installed, start it with
 
 ```bash
 kind create cluster
@@ -141,9 +141,17 @@ kubectl create -f https://raw.githubusercontent.com/atomix/raft-storage-controll
 kubectl create -f https://raw.githubusercontent.com/atomix/cache-storage-controller/master/deploy/cache-storage-controller.yaml
 ```
 
+## Deploy ONOS Operator
+`onos-operator` ensures that ONOS Custom Resource Defintions (CRD) for `onos-topo` and `onos-config` are deployed in to the cluster.
+
+To ensure the controllers are deployed in the correct place with the proper configuration, you can use the deployment manifests rather than the Helm charts:
+```bash
+kubectl create -f https://raw.githubusercontent.com/onosproject/onos-operator/v0.4.1/deploy/onos-operator.yaml
+```
+
 ## Deploy the µONOS services
 A complete set of µONOS services can be deployed with just the over-arching
-[`onos-umbrella` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos-umbrella). 
+[`onos-umbrella` chart](https://github.com/onosproject/onos-helm-charts/tree/master/onos-umbrella).
 
 Run the install:
 ```bash
@@ -160,13 +168,23 @@ kubectl -n micro-onos get pods -w
 
 giving a list like:
 ```
-NAME                                                         READY   STATUS    RESTARTS   AGE
-onos-cli-b6dc469c5-np5p9                                     1/1     Running   0          4m
-onos-config-864d54477c-rqgng                                 5/5     Running   0          4m
-onos-consensus-1-0                                           1/1     Running   0          12m
-onos-gui-6fc65856f9-7jj7j                                    2/2     Running   0          4m
-onos-topo-b9cfd7fc6-7k2ss                                    1/1     Running   0          4m
-``` 
+NAME                                         READY   STATUS    RESTARTS   AGE
+onos-cli-7b7868c7b8-t2n4r                    1/1     Running   0          89s
+onos-config-84fd7476c7-44llj                 2/2     Running   0          89s
+onos-consensus-db-1-0                        1/1     Running   0          89s
+onos-gui-694bc898b7-m5xls                    2/2     Running   0          89s
+onos-topo-c6975b7bf-x8nb7                    1/1     Running   0          89s
+```
+
+Additionally the Controllers for Atomix and Onos-Operator can be seen in the `kube-system` namespace
+```
+NAME                                         READY   STATUS    RESTARTS   AGE
+atomix-controller-d69c9d45c-fx9b7            1/1     Running   42         79d
+cache-storage-controller-65977dccc8-gdcb2    1/1     Running   42         79d
+raft-storage-controller-79649fc8c7-qcj44     1/1     Running   42         79d
+config-operator-56dc64df8d-h8cpb             1/1     Running   0          3h16m
+topo-operator-6f555cb86-54pdz                1/1     Running   0          3h16m
+```
 
 ### Maintenance
 To see the list of installed charts:
@@ -214,7 +232,7 @@ The helm charts need to be present on your PC. Run:
 git clone https://github.com/onosproject/onos-helm-charts && cd onos-helm-charts
 ```
 
-### Over-arching (umbrella) chart 
+### Over-arching (umbrella) chart
 Run the build of dependent charts to use the local `onos-umbrella` over-arching chart:
 ```bash
 make clean && make deps
