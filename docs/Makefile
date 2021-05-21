@@ -8,7 +8,7 @@ SITE_DIR := $(CURDIR)/site
 DOCKER_RUN_DOC_PORT := 8000
 DOCKER_RUN_DOC_MOUNTS := -v $(CURDIR):/mkdocs 
 DOCKER_RUN_DOC_OPTS := --rm $(DOCKER_RUN_DOC_MOUNTS) -p $(DOCKER_RUN_DOC_PORT):8000
-MDL_DIRs := ./content/onos-config ./content/onos-topo ./content/onos-ztp ./content/onos-gui \
+MDL_DIRs := ./content/onos-api ./content/onos-config ./content/onos-config-model ./content/onos-topo ./content/onos-ztp ./content/onos-gui \
 			./content/onos-ric ./content/ran-simulator \
             ./content/onos-cli/docs/setup.md ./content/developers ./content/onos-test
 

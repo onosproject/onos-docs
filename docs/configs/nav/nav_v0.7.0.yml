@@ -27,26 +27,25 @@ nav:
   - How To Run Configuration Subsystem?: onos-config/docs/run.md
   - How To Deploy with Helm: onos-config/docs/deployment.md
   - Administrative And Diagnostic CLI: onos-config/docs/cli.md
-  - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
+  - Extending Configuration Subsystem With Model Plugins: onos-config-model/docs/modelplugin.md
   - Northbound gNMI Service: onos-config/docs/gnmi.md
   - gNMI Extensions: onos-config/docs/gnmi_extensions.md
   - APIs:
-      - Admin API: onos-config/docs/api/admin.md
-      - Diagnostic API: onos-config/docs/api/diags.md
+      - Admin API: onos-api/docs/onos/config/admin.md
+      - Diagnostic API: onos-api/docs/onos/config/diags.md
       - Types:
-          - Common Change Types: onos-config/docs/api/types_change.md
-          - Device Change Types: onos-config/docs/api/types_change_device.md
-          - Network Change Types: onos-config/docs/api/types_change_network.md
-          - Common Snapshot Types: onos-config/docs/api/types_snapshot.md
-          - Device Snapshot Types: onos-config/docs/api/types_snapshot_device.md
-          - Network Snapshot Types: onos-config/docs/api/types_snapshot_network.md
+          - Common Change Types: onos-api/docs/onos/config/change_types.md
+          - Device Change Types: onos-api/docs/onos/config/device_change.md
+          - Network Change Types: onos-api/docs/onos/config/network_change.md
+          - Common Snapshot Types: onos-api/docs/onos/config/snapshot_types.md
+          - Device Snapshot Types: onos-api/docs/onos/config/device_snapshot.md
+          - Network Snapshot Types: onos-api/docs/onos/config/network_snapshot.md
+      - Model Registry API: onos-api/docs/onos/configmodel/registry.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
   - How To Deploy with Helm: onos-topo/docs/deployment.md
   - APIs:
-      - Admin API: onos-topo/docs/api/admin.md
-      - Diagnostic API: onos-topo/docs/api/diags.md
-      - Device API: onos-topo/docs/api/device.md
+      - Entity, Kind, Relationship API: onos-api/docs/onos/topo/topo.md
 - Command Line Interface Subsystem (CLI):
   - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
   - How To Deploy with Helm: onos-cli/docs/deployment.md
