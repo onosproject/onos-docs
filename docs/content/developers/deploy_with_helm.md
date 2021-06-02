@@ -133,20 +133,22 @@ kubectl create namespace micro-onos
 ## Deploy Atomix Controller
 
 The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
-The first thing that needs to be deployed in any `onos` deployment is the Atomix go controller.
+The first thing that needs to be deployed in any `onos` deployment is the Atomix
+Custom Resource Definitions (CRDs) and Go controller.
 To ensure the controllers are deployed in the correct place with the proper configuration, you can use the deployment manifests rather than the Helm charts:
 ```bash
-kubectl create -f https://raw.githubusercontent.com/atomix/kubernetes-controller/master/deploy/atomix-controller.yaml
-kubectl create -f https://raw.githubusercontent.com/atomix/raft-storage-controller/master/deploy/raft-storage-controller.yaml
-kubectl create -f https://raw.githubusercontent.com/atomix/cache-storage-controller/master/deploy/cache-storage-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/atomix-controller/master/deploy/atomix-controller.yaml
+kubectl create -f https://raw.githubusercontent.com/atomix/atomix-raft-storage-plugin/master/deploy/atomix-raft-storage-plugin.yaml
 ```
 
 ## Deploy ONOS Operator
-`onos-operator` ensures that ONOS Custom Resource Defintions (CRD) for `onos-topo` and `onos-config` are deployed in to the cluster.
+`onos-operator` ensures that ONOS Custom Resource Defintions (CRD) and their
+controllers for `onos-topo` and `onos-config` are deployed in to the cluster.
 
-To ensure the controllers are deployed in the correct place with the proper configuration, you can use the deployment manifests rather than the Helm charts:
+To ensure the controllers are deployed in the correct place with the proper 
+configuration, you can use the deployment manifests rather than the Helm charts:
 ```bash
-kubectl create -f https://raw.githubusercontent.com/onosproject/onos-operator/v0.4.1/deploy/onos-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/onosproject/onos-operator/v0.4.3/deploy/onos-operator.yaml
 ```
 
 ## Deploy the µONOS services
@@ -168,22 +170,22 @@ kubectl -n micro-onos get pods -w
 
 giving a list like:
 ```
-NAME                                         READY   STATUS    RESTARTS   AGE
-onos-cli-7b7868c7b8-t2n4r                    1/1     Running   0          89s
-onos-config-84fd7476c7-44llj                 2/2     Running   0          89s
-onos-consensus-db-1-0                        1/1     Running   0          89s
-onos-gui-694bc898b7-m5xls                    2/2     Running   0          89s
-onos-topo-c6975b7bf-x8nb7                    1/1     Running   0          89s
+NAME                          READY   STATUS    RESTARTS   AGE
+onos-cli-77d6d99947-f74t6     1/1     Running   0          9m55s
+onos-config-c7d96fb79-jlwrm   4/4     Running   0          9m55s
+onos-consensus-db-1-0         1/1     Running   0          9m55s
+onos-consensus-store-1-0      1/1     Running   0          9m55s
+onos-gui-694bc898b7-prq52     2/2     Running   0          9m55s
+onos-topo-6959b958f7-h46xx    3/3     Running   0          9m55s
 ```
 
 Additionally the Controllers for Atomix and Onos-Operator can be seen in the `kube-system` namespace
 ```
 NAME                                         READY   STATUS    RESTARTS   AGE
-atomix-controller-d69c9d45c-fx9b7            1/1     Running   42         79d
-cache-storage-controller-65977dccc8-gdcb2    1/1     Running   42         79d
-raft-storage-controller-79649fc8c7-qcj44     1/1     Running   42         79d
-config-operator-56dc64df8d-h8cpb             1/1     Running   0          3h16m
-topo-operator-6f555cb86-54pdz                1/1     Running   0          3h16m
+kube-system          atomix-controller-945fc9bbd-f9zmm                 1/1     Running   0          91m
+kube-system          atomix-raft-storage-controller-678d9ff777-hnn4q   1/1     Running   0          91m
+kube-system          config-operator-898669f88-k66n2                   1/1     Running   0          90m
+kube-system          topo-operator-76c64f486d-b7967                    1/1     Running   0          90m
 ```
 
 ### Maintenance
@@ -202,7 +204,7 @@ To delete the deployment issue:
 helm delete -n micro-onos onos-umbrella
 ```
 
-## Deploy single services services
+## Deploy single services
 **Alternatively** can deploy each service by itself. Please refer to each service's `deployment` file to get the exact command for each helm chart.
 Example for [onos-topo](https://docs.onosproject.org/onos-topo/docs/deployment/).
 
@@ -210,7 +212,7 @@ Example for [onos-topo](https://docs.onosproject.org/onos-topo/docs/deployment/)
 helm -n micro-onos install onos-topo onosproject/onos-topo
 ```
 
-> For individual services it is necessary to install Atomix first, as above:
+> For individual services it is necessary to install CRDs first, as above:
 
 ## Developer workflow
 Developers may want to run and deploy charts that have not yet been released. This
@@ -233,14 +235,9 @@ git clone https://github.com/onosproject/onos-helm-charts && cd onos-helm-charts
 ```
 
 ### Over-arching (umbrella) chart
-Run the build of dependent charts to use the local `onos-umbrella` over-arching chart:
+Run the build of dependent charts to use the *local* `onos-umbrella` over-arching chart:
 ```bash
-make clean && make deps
-```
-
-If you make changes to one of the charts and want to re-deploy, please first issue:
-```bash
-helm dependency update onos-umbrella
+make deps
 ```
 
 ### Individual local charts
