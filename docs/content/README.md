@@ -26,8 +26,8 @@ The platform enables comprehensive set of network operations:
 
 ## Additional Resources
 ### Talks at ONF Connect 2019
-* [µONOS Project Overview](https://vimeo.com/360845205)
-* [µONOS for Developers](https://vimeo.com/360846886)
-* [Device Configuration in µONOS](https://vimeo.com/360886688)
+* [µONOS Project Overview](https://www.youtube.com/watch?v=rS_SWvDIJhw)
+* [µONOS for Developers](https://www.youtube.com/watch?v=a4x3RowWCQA)
+* [Device Configuration in µONOS](https://www.youtube.com/watch?v=Ibm7kHTrurw)
 
 </div>
