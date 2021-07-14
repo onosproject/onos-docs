@@ -55,7 +55,7 @@ To deploy the Helm chart locally:
 * First, you will need to install [Docker] to build and deploy an image locally.
 
 * Second, install [Kind].
-> **Kind v0.9.0 at least** is required, which provides the **K8S API v1.17**
+> **Kind v0.11.0 at least** is required, which provides the **K8S API v1.21**
 
 * Third, install [Helm] version 3. On OSX, this Helm can be installed using [Brew]:
 
@@ -135,20 +135,22 @@ kubectl create namespace micro-onos
 The various `onos` services leverage Atomix as the distributed store for HA, scale and redundancy.
 The first thing that needs to be deployed in any `onos` deployment is the Atomix
 Custom Resource Definitions (CRDs) and Go controller.
-To ensure the controllers are deployed in the correct place with the proper configuration, you can use the deployment manifests rather than the Helm charts:
+
+The controllers should always be deployed in the `kube-system` namespace.
+
 ```bash
-kubectl create -f https://raw.githubusercontent.com/atomix/atomix-controller/master/deploy/atomix-controller.yaml
-kubectl create -f https://raw.githubusercontent.com/atomix/atomix-raft-storage-plugin/master/deploy/atomix-raft-storage-plugin.yaml
+helm install -n kube-system atomix-controller atomix/atomix-controller 
+helm install -n kube-system atomix-raft-storage atomix/atomix-raft-storage
 ```
 
 ## Deploy ONOS Operator
 `onos-operator` ensures that ONOS Custom Resource Defintions (CRD) and their
 controllers for `onos-topo` and `onos-config` are deployed in to the cluster.
 
-To ensure the controllers are deployed in the correct place with the proper 
-configuration, you can use the deployment manifests rather than the Helm charts:
+The controllers should always be deployed in the `kube-system` namespace.
+
 ```bash
-kubectl create -f https://raw.githubusercontent.com/onosproject/onos-operator/v0.4.3/deploy/onos-operator.yaml
+helm install -n kube-system onos-operator onosproject/onos-operator
 ```
 
 ## Deploy the µONOS services
@@ -170,22 +172,21 @@ kubectl -n micro-onos get pods -w
 
 giving a list like:
 ```
-NAME                          READY   STATUS    RESTARTS   AGE
-onos-cli-77d6d99947-f74t6     1/1     Running   0          9m55s
-onos-config-c7d96fb79-jlwrm   4/4     Running   0          9m55s
-onos-consensus-db-1-0         1/1     Running   0          9m55s
-onos-consensus-store-1-0      1/1     Running   0          9m55s
-onos-gui-694bc898b7-prq52     2/2     Running   0          9m55s
-onos-topo-6959b958f7-h46xx    3/3     Running   0          9m55s
+NAMESPACE            NAME                            READY   STATUS    RESTARTS   AGE
+micro-onos           onos-cli-b6ff8cf9b-2phln        1/1     Running   0          77s
+micro-onos           onos-config-85d988999-wjlrv     4/4     Running   0          77s
+micro-onos           onos-consensus-store-1-0        1/1     Running   0          75s
+micro-onos           onos-gui-847f99659-7bfhj        2/2     Running   0          77s
+micro-onos           onos-topo-65978f8c7c-5c4hw      3/3     Running   0          77s
 ```
 
 Additionally the Controllers for Atomix and Onos-Operator can be seen in the `kube-system` namespace
 ```
-NAME                                         READY   STATUS    RESTARTS   AGE
+NAMESPACE            NAME                                              READY   STATUS    RESTARTS   AGE
 kube-system          atomix-controller-945fc9bbd-f9zmm                 1/1     Running   0          91m
 kube-system          atomix-raft-storage-controller-678d9ff777-hnn4q   1/1     Running   0          91m
-kube-system          config-operator-898669f88-k66n2                   1/1     Running   0          90m
-kube-system          topo-operator-76c64f486d-b7967                    1/1     Running   0          90m
+kube-system          onos-operator-config-f8dc4c666-7vr8v              1/1     Running   0          3m31s
+kube-system          onos-operator-topo-bb9dcd646-8splp                1/1     Running   0          3m31s
 ```
 
 ### Maintenance
@@ -195,8 +196,8 @@ helm -n micro-onos ls
 ```
 
 ```
-NAME             	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                         	APP VERSION
-onos-umbrella    	micro-onos	1       	2020-08-12 16:12:40.010583704 +0100 IST	deployed	onos-umbrella-0.0.11         	v0.6.4     
+NAME          	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART                  	APP VERSION
+onos-umbrella	micro-onos	1       	2021-07-14 08:23:46.130263777 +0100 IST	deployed	onos-umbrella-1.1.11	v1.1.0     
 ```
 
 To delete the deployment issue:
