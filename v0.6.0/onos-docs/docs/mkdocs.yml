@@ -1,0 +1,40 @@
+dev_addr: 0.0.0.0:8000
+docs_dir: content
+edit_uri: ""
+extra:
+  social:
+  - link: https://github.com/onosproject
+    type: github
+  - link: https://onosproject.slack.com/
+    type: slack
+  - link: https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw
+    type: youtube
+extra_css:
+- styles/css/extra.css
+markdown_extensions:
+- attr_list
+- codehilite
+- admonition
+- footnotes
+nav: null
+plugins:
+- search
+- minify:
+    minify_html: true
+repo_name: onosproject
+repo_url: https://github.com/onosproject
+site_author: Open Networking Foundation
+site_description: Open Network Operating System (ONOS)
+site_name: onosproject
+site_url: ""
+theme:
+  custom_dir: theme
+  feature:
+    tabs: false
+  i18n:
+    next: Next
+    prev: Previous
+  include_sidebar: true
+  language: en
+  logo: images/onos_logo_2017.png
+  name: material

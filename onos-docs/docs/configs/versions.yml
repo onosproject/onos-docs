@@ -1,0 +1,79 @@
+versions:
+  - ver: 'v0.7.0'
+    repos:
+        - name: onos-api
+          url: https://github.com/onosproject/onos-api
+          tagName: master
+        - name: onos-config
+          url: https://github.com/onosproject/onos-config
+          tagName: master
+        - name: onos-config-model
+          url: https://github.com/onosproject/onos-config-model
+          tagName: master
+        - name: onos-topo
+          url: https://github.com/onosproject/onos-topo
+          tagName:  master
+        - name: onos-gui
+          url: https://github.com/onosproject/onos-gui
+          tagName:  master
+        - name: onos-cli
+          url: https://github.com/onosproject/onos-cli
+          tagName:  master
+        #- name: onos-ztp
+        #  url: https://github.com/onosproject/onos-ztp
+        #  tagName:  master
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName:  master
+        - name: onos-lib-go
+          url: https://github.com/onosproject/onos-lib-go
+          tagName: master
+        #- name: onos-ric
+        #  url: https://github.com/onosproject/onos-ric
+        #  tagName: master
+        #- name: ran-simulator
+        #  url: https://github.com/onosproject/ran-simulator
+        #  tagName: master
+        - name: tlaplus-monitor
+          url: https://github.com/onosproject/tlaplus-monitor
+          tagName: master
+        - name: helmit
+          url: https://github.com/onosproject/helmit
+          tagName: master
+  - ver: 'v0.6.0'
+    repos:
+        - name: onos-config
+          url: https://github.com/onosproject/onos-config
+          tagName: v0.6.0
+        - name: onos-topo
+          url: https://github.com/onosproject/onos-topo
+          tagName:  v0.6.0
+        - name: onos-gui
+          url: https://github.com/onosproject/onos-gui
+          tagName:  v0.6.0
+        - name: onos-test
+          url: https://github.com/onosproject/onos-test
+          tagName:  v0.5.0
+        - name: onos-cli
+          url: https://github.com/onosproject/onos-cli
+          tagName:  v0.6.0
+        - name: onos-ztp
+          url: https://github.com/onosproject/onos-ztp
+          tagName:  v0.6.0
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName:  v0.5.0
+        - name: onos-lib-go
+          url: https://github.com/onosproject/onos-lib-go
+          tagName: v0.6.0
+        #- name: onos-ric
+        #  url: https://github.com/onosproject/onos-ric
+        #  tagName: v0.6.0
+        #- name: ran-simulator
+        #  url: https://github.com/onosproject/ran-simulator
+        #  tagName: v0.6.0
+        - name: tlaplus-monitor
+          url: https://github.com/onosproject/tlaplus-monitor
+          tagName: master
+
+LatestVersion: "v0.7.0"

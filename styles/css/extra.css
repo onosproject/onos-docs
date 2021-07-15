@@ -1,0 +1,85 @@
+/*
+ * Copyright 2019-present Open Networking Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif');
+
+
+/* Fix for Chrome */
+.md-typeset__table td code {
+    word-break: unset;
+}
+
+.md-typeset__table tr :nth-child(1) {
+    word-wrap: break-word;
+    max-width: 30em;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+    font-weight: bold !important;
+    color: rgba(0,0,0,.9) !important;
+}
+
+h2 {
+    font-weight: bold !important;
+}
+
+h3 {
+    font-weight: bold !important;
+}
+
+.md-typeset h5 {
+    text-transform: none;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #8D909F;
+}
+
+p.subtitle {
+    color: rgba(0,0,0,.54);
+    padding-top: 0;
+    margin-top: -2em;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.markdown-body .task-list-item {
+    list-style-type: none !important;
+}
+
+.markdown-body .task-list-item input[type="checkbox"] {
+    margin: 0 4px 0.25em -20px;
+    vertical-align: middle;
+}
+
+/* Unordered list <ul> symbols:
+ * - level 2 is hollow circle
+ * - level 3 is filled square
+ * - ul default is filled disc (bullet)
+ */
+article ul ul {
+    list-style-type:  circle !important;
+}
+
+article ul ul ul {
+    list-style-type:  square !important;
+}

@@ -1,0 +1,54 @@
+versions:
+  - ver: 'v0.2'
+    repos:
+        - name: onos-config
+          url: https://github.com/onosproject/onos-config
+          tagName: master
+        - name: onos-topo
+          url: https://github.com/onosproject/onos-topo
+          tagName:  master
+        - name: onos-gui
+          url: https://github.com/onosproject/onos-gui
+          tagName:  master
+        - name: onos-test
+          url: https://github.com/onosproject/onos-test
+          tagName:  master
+        - name: onos-cli
+          url: https://github.com/onosproject/onos-cli
+          tagName:  master
+        - name: onos-ztp
+          url: https://github.com/onosproject/onos-ztp
+          tagName:  master
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName:  master
+        - name: onos-lib-go
+          url: https://github.com/onosproject/onos-lib-go
+          tagName: master
+        - name: onos-ric
+          url: https://github.com/onosproject/onos-ric
+          tagName: master
+        - name: ran-simulator
+          url: https://github.com/onosproject/ran-simulator
+          tagName: master
+        - name: tlaplus-monitor
+          url: https://github.com/onosproject/tlaplus-monitor
+          tagName: master
+  - ver: 'v0.1-onfconnect'
+    repos:
+        - name: onos-config
+          url: https://github.com/onosproject/onos-config
+          tagName: v0.1-onfconnect
+        - name: onos-topo
+          url: https://github.com/onosproject/onos-topo
+          tagName: v0.1-onfconnect
+        - name: onos-gui
+          url: https://github.com/onosproject/onos-gui
+          tagName: v0.1-onfconnect
+        - name: onos-test
+          url: https://github.com/onosproject/onos-test
+          tagName: v0.1-onfconnect
+        - name: onos-docs
+          url: https://github.com/onosproject/onos-docs
+          tagName: master
+LatestVersion: "v0.2"

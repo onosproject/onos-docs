@@ -1,0 +1,76 @@
+nav:
+- ONOS: README.md
+- Developers:
+  - Contacts and Calendars: onos-docs/docs/content/developers/community-info.md
+  - Development Prerequisites: onos-docs/docs/content/developers/prerequisites.md
+  - Developer Workflow: onos-docs/docs/content/developers/dev_workflow.md
+  - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
+  - GoDoc Pages: onos-docs/docs/content/developers/godocs.md
+  - Deploy with Helm: onos-docs/docs/content/developers/deploy_with_helm.md
+  - Deploy with Helm on GCP: onos-docs/docs/content/developers/deploy_on_gcp.md
+
+#- SD-RAN Subsystem:
+#  - Near Real Time RAN Intelligent Controller (RIC): onos-ric/docs/README.md
+#  - RIC Handover Application: onos-ric/docs/handover.md
+#  - RIC Load Balancing Application: onos-ric/docs/loadbalancer.md
+#  - Ran Simulator: ran-simulator/docs/README.md
+#  - APIs:
+#      - C1 Interface: onos-ric/docs/api/c1-interface.md
+#      - E2 Interface: onos-ric/docs/api/e2-interface.md
+#      - E2 SM: onos-ric/docs/api/e2sm.md
+#      - E2 AP: onos-ric/docs/api/e2ap.md
+
+
+- Configuration Subsystem:
+  - An Introduction to Configuration Susbsytem: onos-config/docs/README.md
+  - How To Build Configuration Subsystem?: onos-config/docs/build.md
+  - How To Run Configuration Subsystem?: onos-config/docs/run.md
+  - How To Deploy with Helm: onos-config/docs/deployment.md
+  - Administrative And Diagnostic CLI: onos-config/docs/cli.md
+  - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
+  - Northbound gNMI Service: onos-config/docs/gnmi.md
+  - gNMI Extensions: onos-config/docs/gnmi_extensions.md
+  - APIs:
+      - Admin API: onos-config/docs/api/admin.md
+      - Diagnostic API: onos-config/docs/api/diags.md
+      - Types:
+          - Common Change Types: onos-config/docs/api/types_change.md
+          - Device Change Types: onos-config/docs/api/types_change_device.md
+          - Network Change Types: onos-config/docs/api/types_change_network.md
+          - Common Snapshot Types: onos-config/docs/api/types_snapshot.md
+          - Device Snapshot Types: onos-config/docs/api/types_snapshot_device.md
+          - Network Snapshot Types: onos-config/docs/api/types_snapshot_network.md
+- Topology Subsystem:
+  - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
+  - How To Deploy with Helm: onos-topo/docs/deployment.md
+  - APIs:
+      - Admin API: onos-topo/docs/api/admin.md
+      - Diagnostic API: onos-topo/docs/api/diags.md
+      - Device API: onos-topo/docs/api/device.md
+- Command Line Interface Subsystem (CLI):
+  - How To Install and Run CLI Subsystem?: onos-cli/docs/setup.md
+  - How To Deploy with Helm: onos-cli/docs/deployment.md
+  - ONOS CLI Commands: onos-cli/docs/cli/onos.md
+- Zero-Touch Provisioning (ZTP) Subsystem:
+  - How To Install And Run ZTP?: onos-ztp/docs/setup.md
+  - APIs:
+      - Admin API: onos-ztp/docs/api/admin.md
+- Test Tools:
+  - Overview Of ONIT: onos-test/docs/overview.md
+  - Getting started with ONIT: onos-test/docs/getting-started.md
+  - How To Write and Run Tests?: onos-test/docs/testing.md
+  - Debugging with ONIT: onos-test/docs/debugging.md
+  - ONIT CLI Commands: onos-test/docs/cli/onit.md
+- Graphical User Interface (GUI):
+  - ONOS-GUI Subsystem: onos-gui/docs/README.md
+  - Configuration GUI: onos-gui/docs/config-gui.md
+  - SD-RAN GUI: onos-gui/docs/ran-gui.md
+  - GUI Architecture: onos-gui/docs/architecture.md
+  - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
+  - How to Deploy and Run with Helm?: onos-gui/docs/deployment.md
+- Logging and Monitoring :
+    - Logging:
+         - Overview of Logging: onos-lib-go/docs/logging/logging.md
+         - Logging API: onos-lib-go/docs/logging/api/logging.md
+    - Conformance Monitoring with TLA+: tlaplus-monitor/docs/README.md
+
