@@ -26,21 +26,18 @@ nav:
   - How To Build Configuration Subsystem?: onos-config/docs/build.md
   - How To Run Configuration Subsystem?: onos-config/docs/run.md
   - How To Deploy with Helm: onos-config/docs/deployment.md
-  - Administrative And Diagnostic CLI: onos-config/docs/cli.md
-  - Extending Configuration Subsystem With Model Plugins: onos-config-model/docs/modelplugin.md
+  - Administrative CLI: onos-config/docs/cli.md
+  - Configuration Model Plugins: onos-config-model/docs/modelplugin.md
   - Northbound gNMI Service: onos-config/docs/gnmi.md
   - gNMI Extensions: onos-config/docs/gnmi_extensions.md
   - APIs:
       - Admin API: onos-api/docs/onos/config/admin.md
-      - Diagnostic API: onos-api/docs/onos/config/diags.md
       - Types:
-          - Common Change Types: onos-api/docs/onos/config/change_types.md
-          - Device Change Types: onos-api/docs/onos/config/device_change.md
-          - Network Change Types: onos-api/docs/onos/config/network_change.md
-          - Common Snapshot Types: onos-api/docs/onos/config/snapshot_types.md
-          - Device Snapshot Types: onos-api/docs/onos/config/device_snapshot.md
-          - Network Snapshot Types: onos-api/docs/onos/config/network_snapshot.md
-      - Model Registry API: onos-api/docs/onos/configmodel/registry.md
+          - Value Types : onos-api/docs/onos/config/v2/values.md
+          - Configuration Types: onos-api/docs/onos/config/v2/configuration.md
+          - Transaction Types: onos-api/docs/onos/config/v2/transaction.md
+          - Proposal Types: onos-api/docs/onos/config/v2/proposal.md
+          - Extension Types: onos-api/docs/onos/config/v2/extension.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
   - How To Deploy with Helm: onos-topo/docs/deployment.md
