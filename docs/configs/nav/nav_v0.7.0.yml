@@ -33,11 +33,11 @@ nav:
   - APIs:
       - Admin API: onos-api/docs/onos/config/admin.md
       - Types:
-          - Value Types : onos-api/docs/onos/config/v2/values.md
+          - Value Types : onos-api/docs/onos/config/v2/value.md
           - Configuration Types: onos-api/docs/onos/config/v2/configuration.md
           - Transaction Types: onos-api/docs/onos/config/v2/transaction.md
           - Proposal Types: onos-api/docs/onos/config/v2/proposal.md
-          - Extension Types: onos-api/docs/onos/config/v2/extension.md
+          - Extension Types: onos-api/docs/onos/config/v2/extensions.md
 - Topology Subsystem:
   - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
   - How To Deploy with Helm: onos-topo/docs/deployment.md
