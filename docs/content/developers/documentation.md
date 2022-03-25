@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # How does onos-docs work?
 *Multi-repo docs* is a process that collects docs from multiple repos and publishes them on a single website. 
 [µONOS](https://github.com/onosproject) project uses the Multi-repo docs process to achieve following design goals:

@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Issues and Pull Requests
 
 The onos-config project uses GitHub Issues to track work items and bugs that were discovered. 

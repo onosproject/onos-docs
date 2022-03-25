@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: VERSION .gitreview  go.mod go.sum *.json *.png *.ico *.jpg *.yml \\
+       docs/content/CNAME docs/content/developers/license_goland.txt \\
+       docs/md.style.rb docs/configs/menu/onos-menu.js.gotmpl
+Copyright: 2021 Open Networking Foundation
+License: Apache-2.0
