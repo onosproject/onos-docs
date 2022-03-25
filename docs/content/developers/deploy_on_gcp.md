@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Deploying onos micro-services on GCP with HELM
 
 This page provides a set of instructions to deploy micro-onos with HELM on the Google Compute Platform, a.k.a. [GCP].

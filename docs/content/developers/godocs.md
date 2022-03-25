@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Links To GoDoc Pages
 
 - [Configuration Subsystem GoDoc](https://pkg.go.dev/github.com/onosproject/onos-config)

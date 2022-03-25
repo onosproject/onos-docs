@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # This Makefile contains all targets related to building onos-docs website
 
 ONOS_DOCS_BUILD_IMAGE ?= onos-docs

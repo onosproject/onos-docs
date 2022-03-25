@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 2020-present Open Networking Foundation <info@opennetworking.org>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Contributing to onosproject
 
 The ONOS team hopes for and welcomes contributions from the community at large.
