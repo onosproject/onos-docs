@@ -2,7 +2,6 @@ linters:
   enable:
     - gofmt
     - gocyclo
-    - golint
     - misspell
     - typecheck
     - errcheck
@@ -12,3 +11,4 @@ issues:
     - Error return value of `.*Close` is not checked
     - Error return value of `.*Flush` is not checked
     - Error return value of `.*Write` is not checked
+    - undeclared name
