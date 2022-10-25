@@ -2,17 +2,18 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM onosproject/golang-build:v0.6.8 AS build
+FROM onosproject/golang-build:v1.3.0 AS build
 ENV GO111MODULE=on
 COPY . /go/src/github.com/onosproject/onos-docs
 RUN cd /go/src/github.com/onosproject/onos-docs && GOFLAGS=-mod=vendor make build-docs-manager
 
-FROM alpine:3.11
+FROM alpine:3.16
+RUN apk add py-pip
 RUN apk add python3-dev
 RUN apk add libc6-compat
 RUN apk add --no-cache --virtual .deps gcc musl-dev
 RUN apk add --no-cache git bash openssh ruby && \
-    gem install mdl
+    gem install mdl -v 0.11.0
 
 RUN apk --no-cache --no-progress add  python3 \
   && pip3 install --user mkdocs==1.1 \

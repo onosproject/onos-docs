@@ -77,7 +77,7 @@ func (repo *Repository) SetTagName(tagName string) Builder {
 	return repo
 }
 
-//Clone clones a repo based on a given url and a path
+// Clone clones a repo based on a given url and a path
 func (repo *Repository) Clone() error {
 	log.Info("git clone ", repo.cloneOptions.URL)
 	r, err := git.PlainClone(repo.path, false, &repo.cloneOptions)
