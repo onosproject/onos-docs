@@ -145,8 +145,7 @@ Custom Resource Definitions (CRDs) and Go controller.
 The controllers should always be deployed in the `kube-system` namespace.
 
 ```bash
-helm install -n kube-system atomix-controller atomix/atomix-controller 
-helm install -n kube-system atomix-raft-storage atomix/atomix-raft-storage
+helm install -n kube-system atomix atomix/atomix
 ```
 
 ## Deploy ONOS Operator
@@ -186,13 +185,18 @@ micro-onos           onos-gui-847f99659-7bfhj        2/2     Running   0        
 micro-onos           onos-topo-65978f8c7c-5c4hw      3/3     Running   0          77s
 ```
 
-Additionally the Controllers for Atomix and Onos-Operator can be seen in the `kube-system` namespace
+Additionally, the Controllers for Atomix and Onos-Operator can be seen in the `kube-system` namespace:
 ```
-NAMESPACE            NAME                                              READY   STATUS    RESTARTS   AGE
-kube-system          atomix-controller-945fc9bbd-f9zmm                 1/1     Running   0          91m
-kube-system          atomix-raft-storage-controller-678d9ff777-hnn4q   1/1     Running   0          91m
-kube-system          onos-operator-config-f8dc4c666-7vr8v              1/1     Running   0          3m31s
-kube-system          onos-operator-topo-bb9dcd646-8splp                1/1     Running   0          3m31s
+NAMESPACE            NAME                                               READY   STATUS    RESTARTS   AGE
+kube-system          atomix-consensus-controller-86db6d654b-48xsl       1/1     Running   0          2m5s
+kube-system          atomix-controller-755867f47-9526c                  1/1     Running   0          2m5s
+kube-system          atomix-pod-memory-controller-589445f57b-v5s5q      1/1     Running   0          2m5s
+kube-system          atomix-raft-controller-59874f47cf-ljjxh            1/1     Running   0          2m5s
+kube-system          atomix-runtime-controller-7878645d58-tnwcg         1/1     Running   0          2m5s
+kube-system          atomix-shared-memory-controller-5bd59cd49c-gsq9p   1/1     Running   0          2m5s
+kube-system          atomix-sidecar-controller-8559bfd6c-rjjmg          1/1     Running   0          2m5s
+kube-system          onos-operator-app-55997c5989-8nvjn                 1/1     Running   0          5m1s
+kube-system          onos-operator-topo-7bcd58d88d-t6qx5                1/1     Running   0          5m1s
 ```
 
 ### Maintenance
