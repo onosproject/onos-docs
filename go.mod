@@ -13,7 +13,7 @@ require (
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/onosproject/onos-lib-go v0.6.0
 	github.com/pkg/errors v0.8.1
-	golang.org/x/sys v0.0.0-20191010194322-b09406accb47 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 	gopkg.in/src-d/go-git.v4 v4.13.1
 	gopkg.in/yaml.v2 v2.2.8
 	gotest.tools v2.2.0+incompatible
