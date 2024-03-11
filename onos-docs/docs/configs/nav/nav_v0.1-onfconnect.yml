@@ -1,0 +1,26 @@
+nav:
+- ONOS: onos-docs/docs/content/README.md
+- Developers:
+  - Contacts and Calendars: onos-docs/docs/content/developers/community-info.md
+  - Development Prerequisites: onos-docs/docs/content/developers/prerequisites.md
+  - Developer Workflow: onos-docs/docs/content/developers/dev_workflow.md
+  - Contribution Guidelines: onos-docs/docs/content/developers/contributing.md
+- Configuration Subsystem:
+  - How To Build Configuration Subsystem?: onos-config/docs/build.md
+  - How To Run Configuration Subsystem?: onos-config/docs/run.md
+  - How To Debug Configuration Subsystem?: onos-config/docs/debugging.md
+  - Administrative And Diagnostic CLI: onos-config/docs/cli.md
+  - Extending Configuration Subsystem With Model Plugins: onos-config/docs/modelplugin.md
+  - Northbound gNMI Service: onos-config/docs/gnmi.md
+  - gNMI Extensions: onos-config/docs/gnmi_extensions.md
+- Topology Subsystem:
+  - How To Use Topology Subsystem CLI?: onos-topo/docs/cli.md
+- Test Tools:
+  - How To Install and Run ONIT?: onos-test/docs/setup.md
+  - How To Use ONIT?: onos-test/docs/run.md
+  - How To Write and Run Tests?: onos-test/docs/testing.md
+- Graphical User Interface (GUI):
+  - Configuration GUI: onos-gui/docs/config-gui.md
+  - GUI Architecture: onos-gui/docs/architecture.md
+  - GUI Development Prerequisites: onos-gui/docs/prerequisites.md
+  - How To Run ONOS GUI?: onos-gui/docs/run.md
